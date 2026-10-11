@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidang Invention · Pengaruh Lama Fermentasi Buah Kopi · SMA Gunung Madu</title>
+<meta name="description" content="Presentasi sidang Invention SMA Gunung Madu: Pengaruh Lama Fermentasi Buah Kopi terhadap Karakteristik Seduhan Kopi — Ega Belva Sofyana.">
+<link rel="icon" href="assets/img/logo-sma-gunung-madu.jpg">
+
+<!-- Tema tersimpan dipasang sebelum render agar tidak berkedip -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("inv-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      var a = localStorage.getItem("inv-anim");
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (a === "off" || (a === null && reduce)) document.documentElement.classList.add("no-anim");
+      if (a === "on") document.documentElement.classList.add("force-anim");
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Cormorant Garamond dimuat dari Google Fonts (butuh internet).
+     Tanpa internet, tampilan jatuh ke font serif cadangan (lihat --serif di css/style.css).
+     IBM Plex Mono sudah disertakan lokal di assets/fonts/. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Simbol motif latar (dipakai oleh js/app.js) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="leaf" viewBox="0 0 100 100">
+      <path d="M4 50 C28 6 72 6 96 50 C72 94 28 94 4 50 Z"/>
+      <path d="M4 50 L96 50 M34 50 L52 30 M52 50 L70 32 M34 50 L52 70 M52 50 L70 68" fill="none" stroke="var(--bg)" stroke-width="3.2" stroke-linecap="round" opacity="0.7"/>
+    </symbol>
+    <symbol id="bean" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="50" rx="40" ry="28"/>
+      <path d="M14 52 C34 28 62 74 86 46" fill="none" stroke="var(--bg)" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="viewport">
+<div id="stage">
+
+<!-- ====================================================
+     SLIDE 1 — COVER
+     ==================================================== -->
+<section class="slide" data-anim="cover" aria-label="Slide 1: Cover">
+  <div class="cover-left">
+    <div class="school g">
+      <div class="logo-tile"><img src="assets/img/logo-sma-gunung-madu.jpg" alt="Logo SMA Gunung Madu"></div>
+      <div><b>SMA Gunung Madu</b><span>Lampung Tengah</span></div>
+    </div>
+    <p class="cover-tag g">// Sidang Invention · Tahun Ajaran 2026/2027</p>
+    <h1 class="cover-title g">Pengaruh Lama Fermentasi Buah Kopi terhadap Karakteristik Seduhan Kopi<span class="cur" aria-hidden="true"></span></h1>
+    <dl class="meta g">
+      <div>
+        <dt>Disusun oleh</dt>
+        <dd>Ega Belva Sofyana<br><small>NISN 0095484062</small></dd>
+      </div>
+      <div>
+        <dt>Kelas</dt>
+        <dd>XII B</dd>
+      </div>
+      <div>
+        <dt>Pembimbing</dt>
+        <dd>Kinanti Kurnia Adisaputri</dd>
+      </div>
+      <div>
+        <dt>Tanggal sidang</dt>
+        <!-- PERLU DIISI: tanggal sidang (contoh: Senin, 12 Oktober 2026). Ganti <span class="empty-line"></span> dengan teks tanggalnya. -->
+        <dd><span class="empty-line" style="margin-top:34px"></span></dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="hero-frame g">
+    <div class="ph"><img src="assets/img/gambar-6.jpg" alt="Hasil seduhan kopi dalam gelas termos"></div>
+    <div class="cap">Foto produk · hasil seduhan kopi</div>
+    <!-- Ilustrasi vektor sederhana (digambar dengan kode): gelas seduhan, uap, dan biji kopi -->
+    <svg class="cup" viewBox="0 0 200 260" aria-hidden="true">
+      <path class="steam" d="M78 74 C64 58 92 46 78 24"/>
+      <path class="steam" d="M104 74 C90 58 118 46 104 24"/>
+      <path class="steam" d="M130 74 C116 58 144 46 130 24"/>
+      <path class="brew" d="M50 122 Q75 114 100 122 T150 122 L139 232 Q137 242 127 242 L73 242 Q63 242 61 232 Z"/>
+      <path class="glass" d="M44 92 L156 92 L141 236 Q139 252 125 252 L75 252 Q61 252 59 236 Z"/>
+      <path class="shine" d="M62 112 L70 220"/>
+      <g transform="translate(26 238) rotate(-24)"><g class="b1"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+      <g transform="translate(176 244) rotate(18)"><g class="b2"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+      <g transform="translate(174 204) rotate(-12) scale(0.8)"><g class="b3"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+    </svg>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 2 — ALUR PRESENTASI
+     ==================================================== -->
+<section class="slide" data-anim="vine-down" aria-label="Slide 2: Alur presentasi">
+  <div class="agenda-left">
+    <div class="in">
+      <p class="tag">// Sidang Invention</p>
+      <h2 class="g">Alur Presentasi</h2>
+      <div class="rule draw-x"></div>
+    </div>
+    <div class="school-mini">
+      <div class="logo-tile"><img src="assets/img/logo-sma-gunung-madu.jpg" alt="Logo SMA Gunung Madu"></div>
+      <div><b>SMA Gunung Madu</b><span>Sidang Invention</span></div>
+    </div>
+  </div>
+  <div class="agenda-list">
+    <div class="ag g"><span class="no">01</span><div><b>Bab I · Pendahuluan</b><span>Latar belakang, rumusan, tujuan, manfaat, batasan, hipotesis</span></div></div>
+    <div class="ag g"><span class="no">02</span><div><b>Bab II · Tinjauan Pustaka</b><span>Landasan teori dan penelitian terdahulu</span></div></div>
+    <div class="ag g"><span class="no">03</span><div><b>Bab III · Metode Penelitian</b><span>Desain, alat dan bahan, prosedur, teknik data</span></div></div>
+    <div class="ag g"><span class="no">04</span><div><b>Bab IV · Hasil dan Pembahasan</b><span>Data, grafik, dokumentasi, pembahasan</span></div></div>
+    <div class="ag g"><span class="no">05</span><div><b>Bab V · Kesimpulan dan Saran</b><span>Jawaban atas rumusan masalah dan saran</span></div></div>
+    <div class="ag g"><span class="no">06</span><div><b>Daftar Pustaka</b><span>Referensi yang dirujuk</span></div></div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 3 — LATAR BELAKANG
+     ==================================================== -->
+<section class="slide" data-anim="bloom" data-foot aria-label="Slide 3: Latar belakang">
+  <div class="head gf"><p class="tag">// Bab I · Pendahuluan</p><h2 class="title">Latar Belakang</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="lb-wrap">
+      <div class="lb-list">
+        <div class="card g"><p class="k">Kondisi nyata</p>
+          <p class="p">Kopi digemari berbagai kalangan di seluruh dunia dan banyak dikonsumsi di Indonesia. Lampung berpeluang besar: lahan perkebunan luas, produksi tinggi, dan robusta yang dikenal di pasar nasional maupun internasional.</p></div>
+        <div class="card alt g"><p class="k blue">Permasalahan</p>
+          <p class="p">Fermentasi membantu melepaskan lapisan lendir, menghasilkan aroma khas, dan mengurangi kafein pada robusta, tetapi metode ini masih jarang digunakan.</p></div>
+        <div class="card sage g"><p class="k sage">Gagasan solusi</p>
+          <p class="p">Meneliti lama fermentasi buah kopi dan pengaruhnya terhadap karakteristik seduhan: rasa, aroma, dan warna.</p></div>
+      </div>
+      <div class="lb-photo g">
+        <figure class="photo" style="height:470px;margin:0"><img src="assets/img/gambar-1.jpg" alt="Buah kopi dengan berbagai tingkat kematangan di atas tampah"></figure>
+        <p class="cap">Gambar 1. Buah kopi sebagai bahan penelitian</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 4 — RUMUSAN MASALAH
+     ==================================================== -->
+<section class="slide" data-anim="sprout" data-foot aria-label="Slide 4: Rumusan masalah">
+  <div class="head gf"><p class="tag">// Bab I · Pendahuluan</p><h2 class="title">Rumusan Masalah</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="big-q">
+      <div class="card g">
+        <span class="q-mark" aria-hidden="true">“</span>
+        <p class="q">Apa pengaruh lama fermentasi buah kopi terhadap karakteristik seduhan kopi, ditinjau dari rasa, aroma, dan warna?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 5 — TUJUAN
+     ==================================================== -->
+<section class="slide" data-anim="slide-l" data-foot aria-label="Slide 5: Tujuan penelitian">
+  <div class="head gf"><p class="tag">// Bab I · Pendahuluan</p><h2 class="title">Tujuan Penelitian</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="tujuan">
+      <div class="card alt g">
+        <p class="k blue">Tujuan umum</p>
+        <p class="p">Mengetahui pengaruh lama fermentasi buah kopi terhadap karakter kopi, termasuk bagaimana proses tersebut mengubah aroma, rasa, dan warna kopi setelah diseduh.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 6 — BATASAN MASALAH & HIPOTESIS
+     ==================================================== -->
+<section class="slide" data-anim="split" data-foot aria-label="Slide 6: Batasan masalah dan hipotesis">
+  <div class="head gf"><p class="tag">// Bab I · Pendahuluan</p><h2 class="title">Batasan Masalah dan Hipotesis</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="bh">
+      <div class="card g g-left">
+        <p class="k">Batasan masalah</p>
+        <ol>
+          <li><i>a.</i><span>Dibatasi pada pengaruh lama fermentasi buah kopi terhadap karakteristik seduhan kopi.</span></li>
+          <li><i>b.</i><span>Berfokus pada karakteristik dasar seduhan: rasa, aroma, dan warna.</span></li>
+          <li><i>c.</i><span>Durasi fermentasi dibatasi pada 24, 48, dan 72 jam, tanpa membahas faktor lain di luar variabel penelitian.</span></li>
+        </ol>
+      </div>
+      <div class="card alt hip g g-right">
+        <p class="k blue">Hipotesis</p>
+        <p class="h-code">Hi</p>
+        <p class="p">Terdapat pengaruh lama fermentasi buah kopi terhadap kualitas seduhan kopi, ditinjau dari rasa, aroma, dan warna.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 7 — MANFAAT
+     ==================================================== -->
+<section class="slide" data-anim="bloom" data-foot aria-label="Slide 7: Manfaat penelitian">
+  <div class="head gf"><p class="tag">// Bab I · Pendahuluan</p><h2 class="title">Manfaat Penelitian</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="three">
+      <div class="card g">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <p class="h3">Bagi Siswa</p>
+        <p class="p">Menambah wawasan dan pemahaman tentang proses fermentasi buah kopi serta pengaruhnya terhadap aroma, rasa, dan warna dalam penyeduhan kopi.</p>
+      </div>
+      <div class="card alt g">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
+        <p class="h3">Bagi Sekolah</p>
+        <p class="p">Meningkatkan kualitas karya ilmiah dan prestasi sekolah dalam penelitian, serta menjadi bahan ajar tambahan pada mata pelajaran terkait, seperti Biologi atau Kimia.</p>
+      </div>
+      <div class="card sage g">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <p class="h3">Bagi Masyarakat</p>
+        <p class="p">Memberi informasi tentang pengaruh fermentasi buah kopi terhadap kualitas seduhan dan menambah pengetahuan tentang pengolahan kopi untuk cita rasa yang lebih baik.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 8 — LANDASAN TEORI
+     ==================================================== -->
+<section class="slide" data-anim="diag" data-foot aria-label="Slide 8: Landasan teori">
+  <div class="head gf"><p class="tag">// Bab II · Tinjauan Pustaka</p><h2 class="title">Landasan Teori</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="quad">
+      <div class="card g">
+        <p class="h3">Kopi (<i>Coffea</i>)</p>
+        <p class="p">Komoditas perkebunan bernilai ekonomi tinggi dari genus <i>Coffea</i>, famili <i>Rubiaceae</i>. Mengandung kafein, asam klorogenat, dan senyawa volatil yang berperan pada aroma dan rasa.</p>
+        <p class="src">Sumber: Farah (2012); Rahardjo (2012)</p>
+      </div>
+      <div class="card alt g">
+        <p class="h3">Fermentasi Kopi</p>
+        <p class="p">Tahap pascapanen yang menguraikan lapisan lendir (<i>mucilage</i>) lewat aktivitas bakteri dan ragi, serta berperan dalam pembentukan karakter rasa dan aroma.</p>
+        <p class="src">Sumber: Haile &amp; Kang (2019); Yusianto &amp; Widyotomo (2013)</p>
+      </div>
+      <div class="card sage g">
+        <p class="h3">Lama Fermentasi</p>
+        <p class="p">Perbedaan lama fermentasi dapat menghasilkan seduhan yang berbeda. Terlalu singkat: lendir belum terurai optimal. Terlalu lama: berpotensi cita rasa kurang baik.</p>
+        <p class="src">Sumber: Kim dkk. (2016); Avallone dkk. (2001); Haile &amp; Kang (2019)</p>
+      </div>
+      <div class="card g">
+        <p class="h3">Aktivitas Mikroorganisme</p>
+        <p class="p">Selama fermentasi menghasilkan senyawa organik yang memengaruhi kualitas sensoris, termasuk aroma dan cita rasa kopi.</p>
+        <p class="src">Sumber: Lee dkk. (2015)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 9 — PENELITIAN TERDAHULU (isi dikosongkan dulu)
+     ==================================================== -->
+<section class="slide" data-anim="draw" data-foot aria-label="Slide 9: Penelitian terdahulu">
+  <div class="head gf"><p class="tag">// Bab II · Tinjauan Pustaka</p><h2 class="title">Penelitian Terdahulu</h2><div class="rule draw-x"></div></div>
+  <div class="content terdahulu">
+    <!-- PERLU DIISI: tabel penelitian terdahulu (minimal 3 baris: Peneliti (Tahun), Judul, Hasil, Perbedaan) dan kotak "State of the art".
+         Materi ini tidak ada di laporan, jadi sengaja dikosongkan. -->
+    <div class="tbl-card g">
+      <table class="tbl">
+        <thead><tr><th>No</th><th>Peneliti (Tahun)</th><th>Judul</th><th>Hasil</th><th>Perbedaan</th></tr></thead>
+        <tbody>
+          <tr class="gf"><td class="mono">1</td><td></td><td></td><td></td><td></td></tr>
+          <tr class="gf"><td class="mono">2</td><td></td><td></td><td></td><td></td></tr>
+          <tr class="gf"><td class="mono">3</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sota g"><b>State of the art</b><span class="empty-line" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 10 — DESAIN PENELITIAN
+     ==================================================== -->
+<section class="slide" data-anim="rise" data-foot aria-label="Slide 10: Desain penelitian">
+  <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Desain Penelitian</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="six">
+      <div class="card g"><p class="k">Jenis penelitian</p><p class="p">Eksperimen<small>pendekatan kuantitatif</small></p></div>
+      <div class="card alt g"><p class="k blue">Waktu</p><p class="p">Juni 2026 – Oktober 2026</p></div>
+      <div class="card sage g"><p class="k sage">Tempat</p><p class="p">Perumahan II, PT.PSMI</p></div>
+      <div class="card g"><p class="k">Variabel bebas</p><p class="p">Lama fermentasi buah kopi</p></div>
+      <div class="card alt g"><p class="k blue">Variabel terikat</p><p class="p">Karakteristik seduhan kopi<small>aroma, warna, rasa</small></p></div>
+      <div class="card sage g"><p class="k sage">Variabel kontrol</p><p class="p" style="font-size:33px">Jumlah kopi, ukuran gilingan, suhu penyeduhan, volume air, lama penyeduhan</p></div>
+    </div>
+    <div class="perlakuan draw-x">
+      <div>Perlakuan</div>
+      <div><b>P0</b><span>24 jam</span></div>
+      <div><b>P1</b><span>48 jam</span></div>
+      <div><b>P2</b><span>72 jam</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 11 — ALAT DAN BAHAN
+     ==================================================== -->
+<section class="slide" data-anim="split" data-foot aria-label="Slide 11: Alat dan bahan">
+  <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Alat dan Bahan</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <!-- PERLU DIISI: kolom "Jumlah" dan "Fungsi" pada kedua tabel (tidak ada di laporan, sengaja dikosongkan). -->
+    <div class="two">
+      <div class="tbl-card g g-left">
+        <p class="tbl-cap">Tabel 1. Alat</p>
+        <table class="tbl compact">
+          <thead><tr><th>Nama</th><th class="w-j">Jumlah</th><th class="w-f">Fungsi</th></tr></thead>
+          <tbody>
+            <tr><td>Toples</td><td></td><td></td></tr>
+            <tr><td>Tampah</td><td></td><td></td></tr>
+            <tr><td>Wajan</td><td></td><td></td></tr>
+            <tr><td>Sutil</td><td></td><td></td></tr>
+            <tr><td>Pasir sangrai</td><td></td><td></td></tr>
+            <tr><td>Penggiling kopi</td><td></td><td></td></tr>
+            <tr><td>Gelas</td><td></td><td></td></tr>
+            <tr><td>Sendok</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-card g g-right">
+        <p class="tbl-cap">Tabel 1. Bahan</p>
+        <table class="tbl compact">
+          <thead><tr><th>Nama</th><th class="w-j">Jumlah</th><th class="w-f">Fungsi</th></tr></thead>
+          <tbody>
+            <tr><td>Buah kopi</td><td></td><td></td></tr>
+            <tr><td>Air</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 12 — PROSEDUR PENELITIAN
+     ==================================================== -->
+<section class="slide" data-anim="chain" data-foot aria-label="Slide 12: Prosedur penelitian">
+  <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Prosedur Penelitian</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="steps">
+      <div class="trail draw-x"></div>
+      <div class="step g"><span class="node">1</span><div class="card"><p class="h3">Persiapan</p><p class="p">Menyiapkan alat serta bahan: buah kopi dan air bersih.</p></div></div>
+      <div class="step g"><span class="node">2</span><div class="card alt"><p class="h3">Fermentasi</p><p class="p">Buah kopi matang dibagi 3 kelompok, difermentasi 24, 48, 72 jam, lalu dicuci dan dikeringkan.</p>
+        <div class="thumb"><img src="assets/img/gambar-3.jpg" alt="Fermentasi buah kopi dalam toples"><span>Gambar 3</span></div></div></div>
+      <div class="step g"><span class="node">3</span><div class="card sage"><p class="h3">Bubuk kopi</p><p class="p">Disangrai dengan tingkat sama, didinginkan, digiling, lalu disimpan.</p>
+        <div class="thumb"><img src="assets/img/gambar-5.jpg" alt="Bubuk kopi hasil penggilingan"><span>Gambar 5</span></div></div></div>
+      <div class="step g"><span class="node">4</span><div class="card"><p class="h3">Penyeduhan</p><p class="p">100 g bubuk, 400 ml air 90–95 °C, didiamkan 4 menit, disaring.</p>
+        <div class="thumb"><img src="assets/img/gambar-6.jpg" alt="Hasil seduhan kopi"><span>Gambar 6</span></div></div></div>
+      <div class="step g"><span class="node">5</span><div class="card alt"><p class="h3">Analisis data</p><p class="p">Penilaian organoleptik oleh panelis, lalu analisis dengan uji Friedman.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 13 — TEKNIK PENGUMPULAN DATA
+     ==================================================== -->
+<section class="slide" data-anim="rise" data-foot aria-label="Slide 13: Teknik pengumpulan data">
+  <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Teknik Pengumpulan Data</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <!-- PERLU DIISI (jika ingin ditambah): label jenis data primer/sekunder, ketelitian instrumen, dan jumlah ulangan.
+         Ketiganya tidak ada di laporan, jadi tidak ditampilkan. -->
+    <div class="tp">
+      <div class="card g">
+        <p class="k">Jenis data</p>
+        <p class="p">Hasil penilaian organoleptik dari panelis terhadap seduhan kopi.</p>
+        <span class="empty-line"></span>
+      </div>
+      <div class="card alt g">
+        <p class="k blue">Instrumen</p>
+        <p class="p" style="font-size:32px;margin-bottom:10px">Lembar penilaian organoleptik, skala 1–5:</p>
+        <ul class="skala">
+          <li><b>Aroma</b>1 sangat tidak kuat … 5 sangat khas dan kuat</li>
+          <li><b>Warna</b>1 sangat tidak menarik … 5 sangat menarik</li>
+          <li><b>Rasa (tingkat keasaman)</b>1 sangat tidak asam … 5 sangat asam</li>
+        </ul>
+      </div>
+      <div class="card sage g">
+        <p class="k sage">Cara pengambilan</p>
+        <p class="p">Empat panelis menilai tiga sampel seduhan: P0 (24 jam), P1 (48 jam), dan P2 (72 jam).</p>
+        <span class="empty-line"></span>
+      </div>
+    </div>
+    <div class="dok g"><b>Dokumentasi</b><p class="p">Foto proses penelitian, dari buah kopi sampai hasil seduhan (Gambar 1–6).</p></div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 14 — PENGOLAHAN & ANALISIS DATA
+     ==================================================== -->
+<section class="slide" data-anim="split" data-foot aria-label="Slide 14: Teknik pengolahan dan analisis data">
+  <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Teknik Pengolahan dan Analisis Data</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="pa">
+      <div class="card g g-left">
+        <p class="k">Pengolahan data</p>
+        <ul>
+          <li><span>Nilai tiap panelis pada setiap perlakuan diberi peringkat (<i>rank</i>).</span></li>
+          <li><span>Jumlah peringkat tiap perlakuan dihitung untuk uji Friedman.</span></li>
+          <li><span>Data disajikan dalam tabel dan grafik untuk menggambarkan perbedaan aroma, warna, dan rasa.</span></li>
+        </ul>
+      </div>
+      <div class="card alt g g-right">
+        <p class="k blue">Analisis data</p>
+        <ul>
+          <li><span>Uji Friedman, taraf signifikansi α = 0,05.</span></li>
+          <li><span>Perbedaan dinyatakan signifikan jika p-value &lt; 0,05.</span></li>
+        </ul>
+        <div class="stat">
+          <div><b>α 0,05</b><span>taraf signifikansi</span></div>
+          <div><b>df 2</b><span>tiga perlakuan</span></div>
+          <div><b>5,991</b><span>χ² kritis</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 15 — DATA HASIL PENELITIAN
+     ==================================================== -->
+<section class="slide" data-anim="rise" data-foot aria-label="Slide 15: Data hasil penelitian">
+  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Data Hasil Penelitian</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="hasil">
+      <div class="tbl-card g">
+        <p class="tbl-cap">Tabel 6–8. Rata-rata nilai organoleptik seduhan kopi (skala 1–5)</p>
+        <table class="tbl">
+          <thead><tr><th>Perlakuan</th><th class="num">Aroma</th><th class="num">Warna</th><th class="num">Rasa</th></tr></thead>
+          <tbody>
+            <tr class="gf"><td>P0 · 24 jam</td><td class="num">2,00</td><td class="num">2,50</td><td class="num">2,25</td></tr>
+            <tr class="gf"><td>P1 · 48 jam</td><td class="num">3,25</td><td class="num">3,75</td><td class="num">3,75</td></tr>
+            <tr class="gf hl-row"><td>P2 · 72 jam</td><td class="num">4,50</td><td class="num">4,75</td><td class="num">4,50</td></tr>
+          </tbody>
+        </table>
+        <p class="src" style="margin-top:12px">Rasa = tingkat keasaman. Nilai lebih tinggi = aroma lebih khas dan kuat, warna lebih menarik, rasa lebih asam.</p>
+      </div>
+      <div class="tbl-card g">
+        <p class="tbl-cap">Tabel 9. Hasil uji Friedman (α = 0,05)</p>
+        <table class="tbl">
+          <thead><tr><th>Parameter</th><th class="num">χ²</th><th class="num">p</th><th>Keterangan</th></tr></thead>
+          <tbody>
+            <tr class="gf"><td>Aroma</td><td class="num">7,000</td><td class="num">0,030</td><td><span class="sig y">Signifikan</span></td></tr>
+            <tr class="gf"><td>Warna</td><td class="num">5,733</td><td class="num">0,057</td><td><span class="sig n">Tidak signifikan</span></td></tr>
+            <tr class="gf"><td>Rasa</td><td class="num">6,500</td><td class="num">0,039</td><td><span class="sig y">Signifikan</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="temuan g"><b>Temuan utama</b><p class="p">Fermentasi 72 jam (P2) memiliki rata-rata tertinggi pada aroma, warna, dan rasa; perbedaan yang signifikan secara statistik terbukti pada aroma dan rasa.</p></div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 16 — GRAFIK
+     ==================================================== -->
+<section class="slide" data-anim="draw" data-foot aria-label="Slide 16: Grafik">
+  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Grafik Hasil Penelitian</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="card chart-card g">
+      <div id="chart" style="flex:1;min-height:0;display:flex"></div>
+      <p class="cap">Gambar 7. Rata-rata nilai organoleptik seduhan kopi pada setiap lama fermentasi</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 17 — DOKUMENTASI (1/2)
+     ==================================================== -->
+<section class="slide" data-anim="draw" data-foot aria-label="Slide 17: Dokumentasi penelitian, bagian 1">
+  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Dokumentasi Penelitian (1/2)</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="dok3">
+      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-1.jpg" alt="Buah kopi dengan berbagai tingkat kematangan"></div></div><figcaption><b>Gambar 1</b>Buah kopi sebagai bahan penelitian</figcaption></figure>
+      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-2.jpg" alt="Biji kopi basah di atas tampah"></div></div><figcaption><b>Gambar 2</b>Biji kopi basah sebelum proses pengeringan</figcaption></figure>
+      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-3.jpg" alt="Tiga toples berisi buah kopi yang sedang difermentasi"></div></div><figcaption><b>Gambar 3</b>Proses fermentasi buah kopi dalam toples</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 18 — DOKUMENTASI (2/2)
+     ==================================================== -->
+<section class="slide" data-anim="draw" data-foot aria-label="Slide 18: Dokumentasi penelitian, bagian 2">
+  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Dokumentasi Penelitian (2/2)</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="dok3">
+      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-4.jpg" alt="Biji kopi hasil fermentasi dijemur di atas tampah"></div></div><figcaption><b>Gambar 4</b>Pengeringan biji kopi hasil fermentasi</figcaption></figure>
+      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-5.jpg" alt="Bubuk kopi dalam kemasan plastik"></div></div><figcaption><b>Gambar 5</b>Hasil penggilingan bubuk kopi</figcaption></figure>
+      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-6.jpg" alt="Hasil seduhan kopi dalam gelas termos"></div></div><figcaption><b>Gambar 6</b>Hasil seduhan kopi</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 19 — PEMBAHASAN (1/2)
+     ==================================================== -->
+<section class="slide" data-anim="slide-l" data-foot aria-label="Slide 19: Pembahasan, pengaruh tiap parameter">
+  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Pembahasan: Tiap Parameter</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="pb">
+      <div class="card g">
+        <p class="h3">Aroma</p><span class="badge">Signifikan · p = 0,030</span>
+        <p class="p">Nilai tertinggi 4,50 pada 72 jam dan terendah 2,00 pada 24 jam, sejalan dengan teori Bab II (Yusianto &amp; Widyotomo, 2013; Lee dkk., 2015).</p>
+        <p class="p">Peningkatan diduga berkaitan dengan senyawa hasil aktivitas mikroorganisme. Senyawa kimia tidak diukur, jadi hubungan ini masih dugaan.</p>
+      </div>
+      <div class="card alt g">
+        <p class="h3">Warna</p><span class="badge no">Tidak signifikan · p = 0,057</span>
+        <p class="p">Rata-rata naik dari 2,50 menjadi 4,75, tetapi belum cukup kuat untuk dinyatakan signifikan (χ² = 5,733; kritis 5,991).</p>
+        <p class="p">Urutan nilai antarpanelis kurang konsisten, panelis hanya empat orang, dan penilaian warna bersifat subjektif.</p>
+      </div>
+      <div class="card sage g">
+        <p class="h3">Rasa</p><span class="badge">Signifikan · p = 0,039</span>
+        <p class="p">Skala rasa menggambarkan tingkat keasaman: seduhan 24 jam mendekati tidak asam (2,25), seduhan 72 jam di antara asam dan sangat asam (4,50).</p>
+        <p class="p">Nilai rasa bukan tingkat kesukaan panelis secara keseluruhan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 20 — PEMBAHASAN (2/2)
+     ==================================================== -->
+<section class="slide" data-anim="slide-l" data-foot aria-label="Slide 20: Pembahasan, kesesuaian dengan teori dan keterbatasan">
+  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Pembahasan: Teori dan Keterbatasan</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="pb wide">
+      <div class="card g">
+        <p class="k">Temuan</p>
+        <p class="p">Ketiga parameter berpola sama: nilai terendah pada 24 jam, tertinggi pada 72 jam.</p>
+        <p class="p">Fermentasi 72 jam (P2) memperoleh rata-rata tertinggi: aroma 4,50, warna 4,75, rasa 4,50.</p>
+      </div>
+      <div class="card alt g">
+        <p class="k blue">Kesesuaian dengan teori</p>
+        <p class="p">Menurut Bab II, bakteri dan ragi memakai lapisan lendir dan menghasilkan senyawa yang dapat menjadi prekursor cita rasa saat disangrai. Makin lama fermentasi, makin besar kemungkinan komponen kimia berubah (Avallone dkk., 2001).</p>
+        <p class="p">Fermentasi yang terlalu lama berpotensi menurunkan mutu, tetapi penurunan tidak terlihat sampai 72 jam, sehingga batas optimalnya belum dapat ditentukan.</p>
+      </div>
+      <div class="card sage g">
+        <p class="k sage">Keterbatasan</p>
+        <p class="p">Hasil berasal dari penilaian empat panelis, bukan analisis kimia.</p>
+        <p class="p">Uji Friedman tidak membandingkan pasangan perlakuan, jadi belum dapat dipastikan 72 jam berbeda nyata dari 48 jam.</p>
+        <p class="p">Fermentasi di atas 72 jam tidak diuji.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 21 — KESIMPULAN DAN SARAN
+     ==================================================== -->
+<section class="slide" data-anim="rise" data-foot aria-label="Slide 21: Kesimpulan dan saran">
+  <div class="head gf"><p class="tag">// Bab V · Kesimpulan dan Saran</p><h2 class="title">Kesimpulan dan Saran</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <div class="ks">
+      <div class="card g">
+        <p class="k">Kesimpulan</p>
+        <p class="lead">Lama fermentasi berpengaruh terhadap aroma dan rasa, tetapi pengaruhnya terhadap warna belum terbukti.</p>
+        <ol>
+          <li><i>a.</i><span>Aroma: signifikan (χ² = 7,000; p = 0,030); 2,00 → 3,25 → 4,50.</span></li>
+          <li><i>b.</i><span>Warna: belum terbukti signifikan (χ² = 5,733; p = 0,057); 2,50 → 3,75 → 4,75.</span></li>
+          <li><i>c.</i><span>Rasa: signifikan (χ² = 6,500; p = 0,039); 2,25 → 3,75 → 4,50.</span></li>
+          <li><i>d.</i><span>Fermentasi 72 jam (P2) memiliki rata-rata tertinggi pada ketiga parameter. Ini berdasarkan rata-rata, bukan perbandingan antarpasangan.</span></li>
+        </ol>
+      </div>
+      <div class="card alt g">
+        <p class="k blue">Saran</p>
+        <ul>
+          <li><i>a.</i><span>Tambah jumlah panelis, terutama untuk parameter warna.</span></li>
+          <li><i>b.</i><span>Perluas variasi lama fermentasi (lebih dari 72 jam atau selang lebih rapat).</span></li>
+          <li><i>c.</i><span>Kendalikan dan catat kondisi fermentasi: suhu ruang, jenis wadah, jumlah buah kopi.</span></li>
+          <li><i>d.</i><span>Kaji parameter lain: keasaman, kepahitan, kekentalan (<em>body</em>), dan kesukaan panelis.</span></li>
+          <li><i>e.</i><span>Ulangi dengan lebih banyak sampel dan tambahkan uji lanjut antarpasangan perlakuan.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 22 — REFERENSI (kerangka kosong)
+     ==================================================== -->
+<section class="slide" data-anim="draw" data-foot aria-label="Slide 22: Referensi">
+  <div class="head gf"><p class="tag">// Daftar Pustaka</p><h2 class="title">Referensi</h2><div class="rule draw-x"></div></div>
+  <div class="content">
+    <!-- PERLU DIISI: daftar pustaka format APA edisi 7, urut abjad nama belakang penulis pertama.
+         Laporan hanya memuat sitasi di dalam teks (Mindiroeseno & Astuti 2024; Zainuddin & Tomina 2021; Rahardjo 2012; Farah 2012;
+         Haile & Kang 2019; Yusianto & Widyotomo 2013; Kim dkk. 2016; Lee dkk. 2015; Avallone dkk. 2001; International Coffee Organization)
+         tanpa data lengkap. Isi tiap <s></s> di bawah dengan satu referensi lengkap. Tambah baris jika perlu. -->
+    <div class="refs">
+      <div class="ref gf"><i>1</i><s></s></div>
+      <div class="ref gf"><i>2</i><s></s></div>
+      <div class="ref gf"><i>3</i><s></s></div>
+      <div class="ref gf"><i>4</i><s></s></div>
+      <div class="ref gf"><i>5</i><s></s></div>
+      <div class="ref gf"><i>6</i><s></s></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SLIDE 23 — PENUTUP
+     ==================================================== -->
+<section class="slide" data-anim="close" aria-label="Slide 23: Terima kasih">
+  <div class="closing">
+    <div class="frame g">
+      <div class="logo-tile"><img src="assets/img/logo-sma-gunung-madu.jpg" alt="Logo SMA Gunung Madu"></div>
+      <h2>Terima Kasih</h2>
+      <p class="qa">// Sesi tanya jawab</p>
+      <p class="who">Ega Belva Sofyana · XII B</p>
+      <p class="sup">Pembimbing: Kinanti Kurnia Adisaputri · SMA Gunung Madu</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     KONTROL (kecil, tidak mencolok)
+     ==================================================== -->
+<div class="ctl" role="toolbar" aria-label="Kontrol presentasi">
+  <button class="cbtn" id="btn-anim" type="button" aria-label="Matikan animasi" title="Animasi">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 7-8 7z"/><path d="M12 15c0-3-2-5-6-5 0 4 2 5 6 5z"/><path class="slash" d="M4 4l16 16"/></svg>
+  </button>
+  <button class="cbtn" id="btn-theme" type="button" aria-label="Ganti tema terang atau gelap" title="Tema">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+  </button>
+  <button class="cbtn" id="btn-full" type="button" aria-label="Layar penuh" title="Layar penuh (F)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+  </button>
+  <span class="sep" aria-hidden="true"></span>
+  <button class="cbtn" id="btn-prev" type="button" aria-label="Slide sebelumnya" title="Sebelumnya (←)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <span class="pg" aria-live="polite"><span id="pg-cur">01</span> / <span id="pg-tot">23</span></span>
+  <button class="cbtn" id="btn-next" type="button" aria-label="Slide berikutnya" title="Berikutnya (→)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+<div class="edge" id="edge" role="status" aria-live="polite"></div>
+
+</div><!-- /#stage -->
+</div><!-- /#viewport -->
+
+<script src="js/app.js"></script>
+</body>
+</html>
