@@ -948,3 +948,47 @@ html[data-theme="dark"] .s1 { fill: #3b8fd0; }
 html[data-theme="light"] .s0 { fill: #8ec1ea; }
 .cbtn .slash { display: none; }
 html.no-anim .cbtn .slash { display: inline; }
+
+/* ---------- Perbaikan: cover, grafik+dokumentasi, prosedur, referensi ---------- */
+
+/* Cover: ilustrasi besar pengganti foto */
+.cup.hero-art { left: 0; bottom: 0; width: 100%; height: 100%; }
+.hero-art .wisp {
+  fill: none;
+  stroke: url(#steamGrad);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 120 60;
+  animation: wispFlow 3.4s linear infinite, sway 5s ease-in-out infinite alternate;
+}
+.hero-art .w2 { animation-delay: -1.1s, -1.6s; }
+.hero-art .w3 { animation-delay: -2.2s, -3.2s; }
+@keyframes wispFlow { to { stroke-dashoffset: -180; } }
+@keyframes sway { from { transform: translateX(-9px); } to { transform: translateX(9px); } }
+.hero-art .bean-crease { stroke: var(--card); }
+
+/* Slide gabungan: grafik + dokumentasi */
+.gd { display: grid; grid-template-columns: 800px 1fr; grid-template-rows: minmax(0, 1fr); gap: 36px; height: 100%; }
+.dokgrid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: 22px 18px; min-height: 0; }
+.dokgrid figure { margin: 0; display: flex; flex-direction: column; min-height: 0; }
+.dokgrid .photo { flex: 1; min-height: 0; box-shadow: none; }
+.dokgrid figcaption { font-size: 20px; line-height: 1.2; font-weight: 600; margin-top: 8px; }
+.dokgrid figcaption b { display: block; font-family: var(--mono); font-size: 16px; color: var(--accent); font-weight: 700; }
+.chart-card { padding: 24px 28px 18px; }
+.chart-card .cat { font-size: 30px; }
+.chart-card .lg { font-size: 26px; }
+.chart-card .bar-val { font-size: 22px; }
+
+/* Prosedur: tabel kecil di langkah 5 */
+.mini { margin-top: auto; padding-top: 14px; }
+.mini .tbl { font-size: 20px; }
+.mini .tbl th { font-size: 15px; padding: 7px 5px; }
+.mini .tbl td { padding: 8px 5px; line-height: 1; }
+.mini span { display: block; font-family: var(--mono); font-size: 16px; color: var(--muted); margin-top: 6px; }
+
+/* Referensi */
+.refs2 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, 1fr); grid-auto-flow: column; gap: 14px 28px; height: 100%; }
+.ref2 { display: grid; grid-template-columns: 62px 1fr; gap: 12px; align-items: center; padding: 0 24px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); }
+.ref2 i { font-family: var(--mono); font-style: normal; font-size: 28px; font-weight: 700; color: var(--accent); }
+.ref2 b { display: block; font-size: 35px; line-height: 1.1; font-weight: 700; }
+.ref2 span { display: block; font-size: 26px; line-height: 1.2; color: var(--muted); font-weight: 500; margin-top: 3px; }

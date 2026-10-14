@@ -81,20 +81,29 @@
   </div>
 
   <div class="hero-frame g">
-    <div class="ph"><img src="assets/img/gambar-6.jpg" alt="Hasil seduhan kopi dalam gelas termos"></div>
-    <div class="cap">Foto produk · hasil seduhan kopi</div>
-    <!-- Ilustrasi vektor sederhana (digambar dengan kode): gelas seduhan, uap, dan biji kopi -->
-    <svg class="cup" viewBox="0 0 200 260" aria-hidden="true">
-      <path class="steam" d="M78 74 C64 58 92 46 78 24"/>
-      <path class="steam" d="M104 74 C90 58 118 46 104 24"/>
-      <path class="steam" d="M130 74 C116 58 144 46 130 24"/>
-      <path class="brew" d="M50 122 Q75 114 100 122 T150 122 L139 232 Q137 242 127 242 L73 242 Q63 242 61 232 Z"/>
-      <path class="glass" d="M44 92 L156 92 L141 236 Q139 252 125 252 L75 252 Q61 252 59 236 Z"/>
-      <path class="shine" d="M62 112 L70 220"/>
-      <g transform="translate(26 238) rotate(-24)"><g class="b1"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
-      <g transform="translate(176 244) rotate(18)"><g class="b2"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
-      <g transform="translate(174 204) rotate(-12) scale(0.8)"><g class="b3"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
-    </svg>
+    <div class="ph">
+      <!-- Ilustrasi vektor sederhana (digambar dengan kode): segelas kopi, uap yang bergerak, dan biji kopi -->
+      <svg class="cup hero-art" viewBox="0 0 650 640" role="img" aria-label="Ilustrasi animasi segelas kopi dengan uap yang bergerak">
+        <defs>
+          <linearGradient id="steamGrad" gradientUnits="userSpaceOnUse" x1="0" y1="236" x2="0" y2="34">
+            <stop offset="0" stop-color="currentColor" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="wisp w1" d="M280 232 C246 196 314 166 280 126 C256 98 292 74 280 40"/>
+        <path class="wisp w2" d="M330 232 C296 190 364 160 330 118 C306 90 342 64 330 30"/>
+        <path class="wisp w3" d="M380 232 C346 196 414 166 380 126 C356 98 392 74 380 40"/>
+        <path class="brew" d="M210 302 Q267 290 325 302 T440 302 L418 536 Q414 548 396 548 L254 548 Q236 548 232 536 Z"/>
+        <path class="glass" d="M205 250 L445 250 L418 540 Q414 560 394 560 L256 560 Q236 560 232 540 Z"/>
+        <path class="shine" d="M232 330 L246 500"/>
+        <line x1="140" y1="568" x2="510" y2="568" stroke="currentColor" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"/>
+        <g transform="translate(150 548) rotate(-24) scale(1.5)"><g class="b1"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+        <g transform="translate(505 550) rotate(20) scale(1.5)"><g class="b2"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+        <g transform="translate(486 470) rotate(-14) scale(1.15)"><g class="b3"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+        <g transform="translate(166 474) rotate(30) scale(1.15)"><g class="b2"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+        <g transform="translate(560 506) rotate(-40)"><g class="b1"><ellipse rx="22" ry="14"/><path class="bean-crease" d="M-17 3 C-6 -11 8 12 17 -3"/></g></g>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -115,7 +124,7 @@
   </div>
   <div class="agenda-list">
     <div class="ag g"><span class="no">01</span><div><b>Bab I · Pendahuluan</b><span>Latar belakang, rumusan, tujuan, manfaat, batasan, hipotesis</span></div></div>
-    <div class="ag g"><span class="no">02</span><div><b>Bab II · Tinjauan Pustaka</b><span>Landasan teori dan penelitian terdahulu</span></div></div>
+    <div class="ag g"><span class="no">02</span><div><b>Bab II · Tinjauan Pustaka</b><span>Landasan teori</span></div></div>
     <div class="ag g"><span class="no">03</span><div><b>Bab III · Metode Penelitian</b><span>Desain, alat dan bahan, prosedur, teknik data</span></div></div>
     <div class="ag g"><span class="no">04</span><div><b>Bab IV · Hasil dan Pembahasan</b><span>Data, grafik, dokumentasi, pembahasan</span></div></div>
     <div class="ag g"><span class="no">05</span><div><b>Bab V · Kesimpulan dan Saran</b><span>Jawaban atas rumusan masalah dan saran</span></div></div>
@@ -258,29 +267,7 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 9 — PENELITIAN TERDAHULU (isi dikosongkan dulu)
-     ==================================================== -->
-<section class="slide" data-anim="draw" data-foot aria-label="Slide 9: Penelitian terdahulu">
-  <div class="head gf"><p class="tag">// Bab II · Tinjauan Pustaka</p><h2 class="title">Penelitian Terdahulu</h2><div class="rule draw-x"></div></div>
-  <div class="content terdahulu">
-    <!-- PERLU DIISI: tabel penelitian terdahulu (minimal 3 baris: Peneliti (Tahun), Judul, Hasil, Perbedaan) dan kotak "State of the art".
-         Materi ini tidak ada di laporan, jadi sengaja dikosongkan. -->
-    <div class="tbl-card g">
-      <table class="tbl">
-        <thead><tr><th>No</th><th>Peneliti (Tahun)</th><th>Judul</th><th>Hasil</th><th>Perbedaan</th></tr></thead>
-        <tbody>
-          <tr class="gf"><td class="mono">1</td><td></td><td></td><td></td><td></td></tr>
-          <tr class="gf"><td class="mono">2</td><td></td><td></td><td></td><td></td></tr>
-          <tr class="gf"><td class="mono">3</td><td></td><td></td><td></td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="sota g"><b>State of the art</b><span class="empty-line" style="margin:0"></span></div>
-  </div>
-</section>
-
-<!-- ====================================================
-     SLIDE 10 — DESAIN PENELITIAN
+     SLIDE 9 — DESAIN PENELITIAN
      ==================================================== -->
 <section class="slide" data-anim="rise" data-foot aria-label="Slide 10: Desain penelitian">
   <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Desain Penelitian</h2><div class="rule draw-x"></div></div>
@@ -303,7 +290,7 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 11 — ALAT DAN BAHAN
+     SLIDE 10 — ALAT DAN BAHAN
      ==================================================== -->
 <section class="slide" data-anim="split" data-foot aria-label="Slide 11: Alat dan bahan">
   <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Alat dan Bahan</h2><div class="rule draw-x"></div></div>
@@ -341,27 +328,39 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 12 — PROSEDUR PENELITIAN
+     SLIDE 11 — PROSEDUR PENELITIAN
      ==================================================== -->
 <section class="slide" data-anim="chain" data-foot aria-label="Slide 12: Prosedur penelitian">
   <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Prosedur Penelitian</h2><div class="rule draw-x"></div></div>
   <div class="content">
     <div class="steps">
       <div class="trail draw-x"></div>
-      <div class="step g"><span class="node">1</span><div class="card"><p class="h3">Persiapan</p><p class="p">Menyiapkan alat serta bahan: buah kopi dan air bersih.</p></div></div>
+      <div class="step g"><span class="node">1</span><div class="card"><p class="h3">Persiapan</p><p class="p">Menyiapkan alat serta bahan: buah kopi dan air bersih.</p>
+        <div class="thumb"><img src="assets/img/gambar-1.jpg" alt="Buah kopi yang belum diolah"><span>Gambar 1 · sebelum diolah</span></div></div></div>
       <div class="step g"><span class="node">2</span><div class="card alt"><p class="h3">Fermentasi</p><p class="p">Buah kopi matang dibagi 3 kelompok, difermentasi 24, 48, 72 jam, lalu dicuci dan dikeringkan.</p>
         <div class="thumb"><img src="assets/img/gambar-3.jpg" alt="Fermentasi buah kopi dalam toples"><span>Gambar 3</span></div></div></div>
       <div class="step g"><span class="node">3</span><div class="card sage"><p class="h3">Bubuk kopi</p><p class="p">Disangrai dengan tingkat sama, didinginkan, digiling, lalu disimpan.</p>
         <div class="thumb"><img src="assets/img/gambar-5.jpg" alt="Bubuk kopi hasil penggilingan"><span>Gambar 5</span></div></div></div>
       <div class="step g"><span class="node">4</span><div class="card"><p class="h3">Penyeduhan</p><p class="p">100 g bubuk, 400 ml air 90–95 °C, didiamkan 4 menit, disaring.</p>
         <div class="thumb"><img src="assets/img/gambar-6.jpg" alt="Hasil seduhan kopi"><span>Gambar 6</span></div></div></div>
-      <div class="step g"><span class="node">5</span><div class="card alt"><p class="h3">Analisis data</p><p class="p">Penilaian organoleptik oleh panelis, lalu analisis dengan uji Friedman.</p></div></div>
+      <div class="step g"><span class="node">5</span><div class="card alt"><p class="h3">Analisis data</p><p class="p">Penilaian organoleptik oleh panelis, lalu uji Friedman.</p>
+        <div class="mini">
+          <table class="tbl">
+            <thead><tr><th></th><th class="num">Aroma</th><th class="num">Warna</th><th class="num">Rasa</th></tr></thead>
+            <tbody>
+              <tr><td>24 jam</td><td class="num">2,00</td><td class="num">2,50</td><td class="num">2,25</td></tr>
+              <tr><td>48 jam</td><td class="num">3,25</td><td class="num">3,75</td><td class="num">3,75</td></tr>
+              <tr><td>72 jam</td><td class="num">4,50</td><td class="num">4,75</td><td class="num">4,50</td></tr>
+            </tbody>
+          </table>
+          <span>Rata-rata nilai (Tabel 6–8)</span>
+        </div></div></div>
     </div>
   </div>
 </section>
 
 <!-- ====================================================
-     SLIDE 13 — TEKNIK PENGUMPULAN DATA
+     SLIDE 12 — TEKNIK PENGUMPULAN DATA
      ==================================================== -->
 <section class="slide" data-anim="rise" data-foot aria-label="Slide 13: Teknik pengumpulan data">
   <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Teknik Pengumpulan Data</h2><div class="rule draw-x"></div></div>
@@ -394,7 +393,7 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 14 — PENGOLAHAN & ANALISIS DATA
+     SLIDE 13 — PENGOLAHAN & ANALISIS DATA
      ==================================================== -->
 <section class="slide" data-anim="split" data-foot aria-label="Slide 14: Teknik pengolahan dan analisis data">
   <div class="head gf"><p class="tag">// Bab III · Metode Penelitian</p><h2 class="title">Teknik Pengolahan dan Analisis Data</h2><div class="rule draw-x"></div></div>
@@ -425,7 +424,7 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 15 — DATA HASIL PENELITIAN
+     SLIDE 14 — DATA HASIL PENELITIAN
      ==================================================== -->
 <section class="slide" data-anim="rise" data-foot aria-label="Slide 15: Data hasil penelitian">
   <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Data Hasil Penelitian</h2><div class="rule draw-x"></div></div>
@@ -460,48 +459,30 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 16 — GRAFIK
+     SLIDE 15 — GRAFIK DAN DOKUMENTASI (gabungan)
      ==================================================== -->
-<section class="slide" data-anim="draw" data-foot aria-label="Slide 16: Grafik">
-  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Grafik Hasil Penelitian</h2><div class="rule draw-x"></div></div>
+<section class="slide" data-anim="draw" data-foot aria-label="Slide 15: Grafik dan dokumentasi">
+  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Grafik dan Dokumentasi</h2><div class="rule draw-x"></div></div>
   <div class="content">
-    <div class="card chart-card g">
-      <div id="chart" style="flex:1;min-height:0;display:flex"></div>
-      <p class="cap">Gambar 7. Rata-rata nilai organoleptik seduhan kopi pada setiap lama fermentasi</p>
+    <div class="gd">
+      <div class="card chart-card g">
+        <div id="chart" style="flex:1;min-height:0;display:flex"></div>
+        <p class="cap">Gambar 7. Rata-rata nilai organoleptik pada setiap lama fermentasi</p>
+      </div>
+      <div class="dokgrid">
+        <figure class="reveal"><div class="photo"><img src="assets/img/gambar-1.jpg" alt="Buah kopi dengan berbagai tingkat kematangan"></div><figcaption><b>Gambar 1</b>Buah kopi sebagai bahan penelitian</figcaption></figure>
+        <figure class="reveal"><div class="photo"><img src="assets/img/gambar-2.jpg" alt="Biji kopi basah di atas tampah"></div><figcaption><b>Gambar 2</b>Biji kopi basah sebelum dikeringkan</figcaption></figure>
+        <figure class="reveal"><div class="photo"><img src="assets/img/gambar-3.jpg" alt="Tiga toples berisi buah kopi yang sedang difermentasi"></div><figcaption><b>Gambar 3</b>Fermentasi buah kopi dalam toples</figcaption></figure>
+        <figure class="reveal"><div class="photo"><img src="assets/img/gambar-4.jpg" alt="Biji kopi hasil fermentasi dijemur di atas tampah"></div><figcaption><b>Gambar 4</b>Pengeringan biji kopi hasil fermentasi</figcaption></figure>
+        <figure class="reveal"><div class="photo"><img src="assets/img/gambar-5.jpg" alt="Bubuk kopi dalam kemasan plastik"></div><figcaption><b>Gambar 5</b>Hasil penggilingan bubuk kopi</figcaption></figure>
+        <figure class="reveal"><div class="photo"><img src="assets/img/gambar-6.jpg" alt="Hasil seduhan kopi dalam gelas termos"></div><figcaption><b>Gambar 6</b>Hasil seduhan kopi</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ====================================================
-     SLIDE 17 — DOKUMENTASI (1/2)
-     ==================================================== -->
-<section class="slide" data-anim="draw" data-foot aria-label="Slide 17: Dokumentasi penelitian, bagian 1">
-  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Dokumentasi Penelitian (1/2)</h2><div class="rule draw-x"></div></div>
-  <div class="content">
-    <div class="dok3">
-      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-1.jpg" alt="Buah kopi dengan berbagai tingkat kematangan"></div></div><figcaption><b>Gambar 1</b>Buah kopi sebagai bahan penelitian</figcaption></figure>
-      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-2.jpg" alt="Biji kopi basah di atas tampah"></div></div><figcaption><b>Gambar 2</b>Biji kopi basah sebelum proses pengeringan</figcaption></figure>
-      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-3.jpg" alt="Tiga toples berisi buah kopi yang sedang difermentasi"></div></div><figcaption><b>Gambar 3</b>Proses fermentasi buah kopi dalam toples</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================
-     SLIDE 18 — DOKUMENTASI (2/2)
-     ==================================================== -->
-<section class="slide" data-anim="draw" data-foot aria-label="Slide 18: Dokumentasi penelitian, bagian 2">
-  <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Dokumentasi Penelitian (2/2)</h2><div class="rule draw-x"></div></div>
-  <div class="content">
-    <div class="dok3">
-      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-4.jpg" alt="Biji kopi hasil fermentasi dijemur di atas tampah"></div></div><figcaption><b>Gambar 4</b>Pengeringan biji kopi hasil fermentasi</figcaption></figure>
-      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-5.jpg" alt="Bubuk kopi dalam kemasan plastik"></div></div><figcaption><b>Gambar 5</b>Hasil penggilingan bubuk kopi</figcaption></figure>
-      <figure><div class="reveal"><div class="photo"><img src="assets/img/gambar-6.jpg" alt="Hasil seduhan kopi dalam gelas termos"></div></div><figcaption><b>Gambar 6</b>Hasil seduhan kopi</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================
-     SLIDE 19 — PEMBAHASAN (1/2)
+     SLIDE 16 — PEMBAHASAN (1/2)
      ==================================================== -->
 <section class="slide" data-anim="slide-l" data-foot aria-label="Slide 19: Pembahasan, pengaruh tiap parameter">
   <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Pembahasan: Tiap Parameter</h2><div class="rule draw-x"></div></div>
@@ -527,7 +508,7 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 20 — PEMBAHASAN (2/2)
+     SLIDE 17 — PEMBAHASAN (2/2)
      ==================================================== -->
 <section class="slide" data-anim="slide-l" data-foot aria-label="Slide 20: Pembahasan, kesesuaian dengan teori dan keterbatasan">
   <div class="head gf"><p class="tag">// Bab IV · Hasil dan Pembahasan</p><h2 class="title">Pembahasan: Teori dan Keterbatasan</h2><div class="rule draw-x"></div></div>
@@ -554,7 +535,7 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 21 — KESIMPULAN DAN SARAN
+     SLIDE 18 — KESIMPULAN DAN SARAN
      ==================================================== -->
 <section class="slide" data-anim="rise" data-foot aria-label="Slide 21: Kesimpulan dan saran">
   <div class="head gf"><p class="tag">// Bab V · Kesimpulan dan Saran</p><h2 class="title">Kesimpulan dan Saran</h2><div class="rule draw-x"></div></div>
@@ -585,28 +566,30 @@
 </section>
 
 <!-- ====================================================
-     SLIDE 22 — REFERENSI (kerangka kosong)
+     SLIDE 19 — REFERENSI
      ==================================================== -->
 <section class="slide" data-anim="draw" data-foot aria-label="Slide 22: Referensi">
   <div class="head gf"><p class="tag">// Daftar Pustaka</p><h2 class="title">Referensi</h2><div class="rule draw-x"></div></div>
   <div class="content">
-    <!-- PERLU DIISI: daftar pustaka format APA edisi 7, urut abjad nama belakang penulis pertama.
-         Laporan hanya memuat sitasi di dalam teks (Mindiroeseno & Astuti 2024; Zainuddin & Tomina 2021; Rahardjo 2012; Farah 2012;
-         Haile & Kang 2019; Yusianto & Widyotomo 2013; Kim dkk. 2016; Lee dkk. 2015; Avallone dkk. 2001; International Coffee Organization)
-         tanpa data lengkap. Isi tiap <s></s> di bawah dengan satu referensi lengkap. Tambah baris jika perlu. -->
-    <div class="refs">
-      <div class="ref gf"><i>1</i><s></s></div>
-      <div class="ref gf"><i>2</i><s></s></div>
-      <div class="ref gf"><i>3</i><s></s></div>
-      <div class="ref gf"><i>4</i><s></s></div>
-      <div class="ref gf"><i>5</i><s></s></div>
-      <div class="ref gf"><i>6</i><s></s></div>
+    <!-- PERLU DIISI (opsional): laporan hanya memuat nama penulis dan tahun, tanpa judul/jurnal/penerbit.
+         Jika ingin format APA lengkap, tambahkan judul dan sumbernya di tiap entri. -->
+    <div class="refs2">
+      <div class="ref2 gf"><i>1</i><div><b>Avallone dkk. (2001)</b><span>Perubahan komposisi kimia selama fermentasi memengaruhi aroma, warna, dan rasa</span></div></div>
+      <div class="ref2 gf"><i>2</i><div><b>Farah (2012)</b><span>Kandungan kopi: antioksidan dan senyawa volatil pembentuk aroma dan rasa</span></div></div>
+      <div class="ref2 gf"><i>3</i><div><b>Haile &amp; Kang (2019)</b><span>Fermentasi oleh bakteri dan ragi; fermentasi berlebihan menurunkan cita rasa</span></div></div>
+      <div class="ref2 gf"><i>4</i><div><b>International Coffee Organization</b><span>Kopi sebagai komoditas global yang banyak dikonsumsi</span></div></div>
+      <div class="ref2 gf"><i>5</i><div><b>Kim dkk. (2016)</b><span>Lama fermentasi berbeda menghasilkan karakteristik seduhan berbeda</span></div></div>
+      <div class="ref2 gf"><i>6</i><div><b>Lee dkk. (2015)</b><span>Senyawa organik hasil aktivitas mikroorganisme memengaruhi kualitas sensoris</span></div></div>
+      <div class="ref2 gf"><i>7</i><div><b>Mindiroeseno &amp; Astuti (2024)</b><span>Manfaat kesehatan kopi</span></div></div>
+      <div class="ref2 gf"><i>8</i><div><b>Rahardjo (2012)</b><span>Kopi memiliki cita rasa dan aroma khas</span></div></div>
+      <div class="ref2 gf"><i>9</i><div><b>Yusianto &amp; Widyotomo (2013)</b><span>Fermentasi berperan dalam karakter aroma dan rasa kopi</span></div></div>
+      <div class="ref2 gf"><i>10</i><div><b>Zainuddin &amp; Tomina (2021)</b><span>Fermentasi kering biji kopi HS di bak semen dengan karung goni</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- ====================================================
-     SLIDE 23 — PENUTUP
+     SLIDE 20 — PENUTUP
      ==================================================== -->
 <section class="slide" data-anim="close" aria-label="Slide 23: Terima kasih">
   <div class="closing">

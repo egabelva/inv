@@ -152,22 +152,23 @@
       { n: "72 jam", v: [4.5, 4.75, 4.5] }
     ];
     function fmt(v) { return String(v.toFixed(2)).replace(".", ","); }
-    var W = 1500, H = 540, x0 = 110, x1 = 1480, yTop = 84, yBase = 462;
+    var W = 740, H = 600, x0 = 72, x1 = 730, yTop = 96, yBase = 500;
     var svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", preserveAspectRatio: "xMidYMid meet",
       "aria-label": "Grafik batang rata-rata nilai aroma, warna, dan rasa pada fermentasi 24, 48, dan 72 jam" });
     function Y(v) { return yBase - (v / 5) * (yBase - yTop); }
 
     for (var t = 0; t <= 5; t++) {
       svg.appendChild(el("line", { "class": t === 0 ? "axis" : "grid", x1: x0, x2: x1, y1: Y(t), y2: Y(t) }));
-      var lab = el("text", { x: x0 - 14, y: Y(t) + 8, "text-anchor": "end" });
+      var lab = el("text", { x: x0 - 12, y: Y(t) + 7, "text-anchor": "end" });
       lab.textContent = String(t);
       svg.appendChild(lab);
     }
-    var yt = el("text", { x: 26, y: (yTop + yBase) / 2, "text-anchor": "middle", transform: "rotate(-90 26 " + ((yTop + yBase) / 2) + ")" });
+    var yt = el("text", { x: 18, y: (yTop + yBase) / 2, "text-anchor": "middle", transform: "rotate(-90 18 " + ((yTop + yBase) / 2) + ")" });
     yt.textContent = "Rata-rata nilai (skala 1–5)";
+    yt.setAttribute("style", "font-size:19px");
     svg.appendChild(yt);
 
-    var gw = (x1 - x0) / cats.length, bw = 104, gap = 22;
+    var gw = (x1 - x0) / cats.length, bw = 58, gap = 10;
     var total = bw * 3 + gap * 2;
     cats.forEach(function (c, gi) {
       var gx = x0 + gi * gw + (gw - total) / 2;
@@ -175,23 +176,23 @@
         var v = s.v[gi], bx = gx + si * (bw + gap), by = Y(v);
         var d = (0.35 + gi * 0.28 + si * 0.14).toFixed(2);
         svg.appendChild(el("rect", { "class": "bar s" + si, x: bx, y: by, width: bw, height: yBase - by, rx: 3, style: "--bd:" + d + "s" }));
-        var tv = el("text", { "class": "bar-val", x: bx + bw / 2, y: by - 12, "text-anchor": "middle", style: "--vd:" + (parseFloat(d) + 0.85).toFixed(2) + "s" });
+        var tv = el("text", { "class": "bar-val", x: bx + bw / 2, y: by - 10, "text-anchor": "middle", style: "--vd:" + (parseFloat(d) + 0.85).toFixed(2) + "s" });
         tv.textContent = fmt(v);
         svg.appendChild(tv);
       });
-      var ct = el("text", { "class": "cat", x: x0 + gi * gw + gw / 2, y: yBase + 56, "text-anchor": "middle" });
+      var ct = el("text", { "class": "cat", x: x0 + gi * gw + gw / 2, y: yBase + 50, "text-anchor": "middle" });
       ct.textContent = c;
       svg.appendChild(ct);
     });
 
-    /* legenda */
-    var lx = x0 + 6;
+    /* legenda: lama fermentasi */
+    var lx = x0;
     series.forEach(function (s, si) {
-      svg.appendChild(el("rect", { "class": "s" + si, x: lx, y: 22, width: 30, height: 30, rx: 3 }));
-      var lt = el("text", { "class": "lg", x: lx + 42, y: 48 });
-      lt.textContent = "Fermentasi " + s.n;
+      svg.appendChild(el("rect", { "class": "s" + si, x: lx, y: 26, width: 28, height: 28, rx: 3 }));
+      var lt = el("text", { "class": "lg", x: lx + 38, y: 50 });
+      lt.textContent = s.n;
       svg.appendChild(lt);
-      lx += 300;
+      lx += 200;
     });
     host.appendChild(svg);
   }
@@ -323,6 +324,7 @@
 
   /* ---------- Inisialisasi ---------- */
   slides.forEach(function (s, i) {
+    s.setAttribute("aria-label", "Slide " + (i + 1) + ": " + s.getAttribute("aria-label").replace(/^Slide \d+:\s*/, ""));
     buildBackground(s, i + 1);
     if (s.hasAttribute("data-foot")) buildFooter(s);
     assignOrder(s);
