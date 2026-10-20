@@ -147,9 +147,9 @@
     if (!host) return;
     var cats = ["Aroma", "Warna", "Rasa"];
     var series = [
-      { n: "24 jam", v: [2.0, 2.5, 2.25] },
-      { n: "48 jam", v: [3.25, 3.75, 3.75] },
-      { n: "72 jam", v: [4.5, 4.75, 4.5] }
+      { n: "24 jam", v: [3.4, 3.44, 3.44] },
+      { n: "48 jam", v: [3.12, 3.52, 3.48] },
+      { n: "72 jam", v: [3.4, 3.2, 3.52] }
     ];
     function fmt(v) { return String(v.toFixed(2)).replace(".", ","); }
     var W = 740, H = 600, x0 = 72, x1 = 730, yTop = 96, yBase = 500;

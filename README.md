@@ -51,4 +51,4 @@ Cari tulisan `PERLU DIISI` di `index.html`. Bagian yang sengaja dikosongkan atau
 
 ## Catatan isi
 
-Semua isi bersumber dari laporan invention. Salah ketik dan label tabel yang keliru di laporan sudah diperbaiki di website (misalnya label Tabel 4 dan 5). Ilustrasi kopi beruap di cover digambar sebagai bentuk vektor sederhana dengan kode, bukan gambar dari generator AI.
+Semua isi bersumber dari laporan invention (versi dengan 25 panelis: Bab IV dan V menjadi acuan data). Salah ketik dan label tabel yang keliru di laporan sudah diperbaiki di website (misalnya label Tabel 4 dan 5). Ilustrasi kopi beruap di cover digambar sebagai bentuk vektor sederhana dengan kode, bukan gambar dari generator AI.
