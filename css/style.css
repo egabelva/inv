@@ -1035,10 +1035,11 @@ html.no-anim .slide.is-leaving { visibility: hidden; }
    ========================================================== */
 .rule {
   position: relative;
-  height: 5px;
-  margin-top: 22px;
+  height: 10px;
+  margin-top: 28px;
   border: 0;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7);
   background: linear-gradient(90deg, #ff2e2e 0, #2eff6a 200px, #2e7dff 400px, #ff2e2e 600px) repeat-x;
   background-size: 600px 100%;
   transform-origin: left center;
@@ -1048,16 +1049,16 @@ html.no-anim .slide.is-leaving { visibility: hidden; }
   position: absolute;
   left: 0;
   right: 0;
-  top: -5px;
-  bottom: -5px;
-  border-radius: 10px;
+  top: -9px;
+  bottom: -9px;
+  border-radius: 16px;
   background: linear-gradient(90deg, #ff2e2e 0, #2eff6a 200px, #2e7dff 400px, #ff2e2e 600px) repeat-x;
   background-size: 600px 100%;
-  filter: blur(10px);
-  opacity: 0.7;
+  filter: blur(16px);
+  opacity: 0.95;
   z-index: -1;
 }
-html[data-theme="light"] .rule::after { opacity: 0.45; }
+html[data-theme="light"] .rule::after { opacity: 0.6; }
 
 @keyframes rgbRun { to { background-position: 600px 0; } }
 
