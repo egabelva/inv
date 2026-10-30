@@ -1029,3 +1029,49 @@ html.no-anim .slide.is-leaving { visibility: hidden; }
 @media (prefers-reduced-motion: reduce) {
   html:not(.force-anim) .slide.is-leaving { visibility: hidden; }
 }
+
+/* ==========================================================
+   Garis di bawah judul: lampu neon RGB berjalan (merah, hijau, biru)
+   ========================================================== */
+.rule {
+  position: relative;
+  height: 5px;
+  margin-top: 22px;
+  border: 0;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #ff2e2e 0, #2eff6a 200px, #2e7dff 400px, #ff2e2e 600px) repeat-x;
+  background-size: 600px 100%;
+  transform-origin: left center;
+}
+.rule::after { /* cahaya neon di sekitar garis */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -5px;
+  bottom: -5px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff2e2e 0, #2eff6a 200px, #2e7dff 400px, #ff2e2e 600px) repeat-x;
+  background-size: 600px 100%;
+  filter: blur(10px);
+  opacity: 0.7;
+  z-index: -1;
+}
+html[data-theme="light"] .rule::after { opacity: 0.45; }
+
+@keyframes rgbRun { to { background-position: 600px 0; } }
+
+.slide.is-active .head .rule.draw-x,
+.slide.is-active .head .rule.draw-x::after { animation: rgbRun 3s linear infinite; }
+.slide.is-active .agenda-left .rule.draw-x,
+.slide.is-active .agenda-left .rule.draw-x::after {
+  animation: rgbRun 3s linear infinite;
+}
+.slide.is-active .agenda-left .rule.draw-x {
+  animation: drawX 1s var(--ease) both, rgbRun 3s linear infinite;
+  animation-delay: calc(var(--i, 0) * 120ms + 200ms), 0s;
+}
+
+/* animasi dimatikan: garis tetap berwarna, tidak berjalan */
+html.no-anim .rule,
+html.no-anim .rule::after { animation: none !important; }
