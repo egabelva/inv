@@ -995,3 +995,37 @@ html.no-anim .cbtn .slash { display: inline; }
 
 /* Data hasil: angka rata-rata tertinggi per kolom */
 .tbl td.top { font-weight: 700; color: var(--accent); }
+
+/* ==========================================================
+   Transisi slide: hanya kartu yang bergerak
+   - judul, footer, dan kontrol muncul seketika (tanpa kedip)
+   - kartu slide lama memudar cepat, kartu slide baru tumbuh masuk
+   - latar motif cross-fade halus
+   ========================================================== */
+
+/* judul + garis di bawahnya tidak dianimasikan */
+.slide.is-active .head.gf,
+.slide.is-active .head .draw-x { animation: none; }
+
+/* motif latar slide baru muncul cepat */
+.slide.is-active .bg .motif-item { animation: fadeIn 0.6s ease both; animation-delay: var(--md, 0.1s); }
+
+/* slide lama: tidak lagi memudar sebagai satu layar */
+.slide.is-leaving { visibility: visible; opacity: 1; transition: none; z-index: 1; pointer-events: none; }
+.slide.is-leaving * { visibility: hidden; }              /* judul, footer, panel: hilang seketika */
+.slide.is-leaving .g, .slide.is-leaving .g *,
+.slide.is-leaving .reveal, .slide.is-leaving .reveal *,
+.slide.is-leaving .gf:not(.head), .slide.is-leaving .gf:not(.head) * { visibility: visible; }
+.slide.is-leaving .g,
+.slide.is-leaving .reveal,
+.slide.is-leaving .gf:not(.head) { animation: cardOut 0.22s ease-in both; animation-delay: 0s; }
+.slide.is-leaving .bg, .slide.is-leaving .bg * { visibility: visible; }
+.slide.is-leaving .bg { animation: bgOut 0.5s ease both; }
+@keyframes cardOut { to { opacity: 0; transform: translateY(10px) scale(0.98); } }
+@keyframes bgOut { to { opacity: 0; } }
+
+/* animasi dimatikan: slide lama hilang seketika */
+html.no-anim .slide.is-leaving { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  html:not(.force-anim) .slide.is-leaving { visibility: hidden; }
+}

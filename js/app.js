@@ -108,7 +108,7 @@
         href: "#" + type, x: (-size / 2).toFixed(1), y: (-size / 2).toFixed(1), width: size.toFixed(1), height: size.toFixed(1),
         transform: "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + (r() * 360).toFixed(0) + ")",
         "class": (type === "leaf" ? "leaf-use" : "bean-use") + " motif-item",
-        style: "--md:" + (0.3 + r() * 1.4).toFixed(2) + "s"
+        style: "--md:" + (r() * 0.35).toFixed(2) + "s"
       });
       motif.appendChild(use);
     }
@@ -133,8 +133,7 @@
 
   function buildFooter(slide) {
     var f = document.createElement("div");
-    f.className = "foot gf";
-    f.style.setProperty("--i", "1");
+    f.className = "foot";
     f.innerHTML =
       '<span class="logo-tile"><img src="assets/img/logo-sma-gunung-madu.jpg" alt="Logo SMA Gunung Madu"></span>' +
       "<span>Sidang Invention · SMA Gunung Madu</span>";
@@ -201,6 +200,7 @@
   function assignOrder(slide) {
     var n = 0;
     [].forEach.call(slide.querySelectorAll(".g, .gf, .reveal, .draw-x, .draw-y"), function (e) {
+      if (e.closest(".head") || e.closest(".foot")) return; /* judul dan footer tidak beranimasi */
       if (!e.style.getPropertyValue("--i")) e.style.setProperty("--i", n);
       n++;
     });
@@ -231,7 +231,7 @@
         if (k === prev) {
           s.classList.remove("is-active");
           s.classList.add("is-leaving");
-          (function (node) { setTimeout(function () { if (!node.classList.contains("is-active")) node.classList.remove("is-leaving"); }, 260); })(s);
+          (function (node) { setTimeout(function () { if (!node.classList.contains("is-active")) node.classList.remove("is-leaving"); }, 520); })(s);
         } else {
           s.classList.remove("is-active", "is-leaving");
         }
