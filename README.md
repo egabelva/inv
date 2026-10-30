@@ -40,7 +40,6 @@ Pilihan tema dan animasi diingat browser. Alamat `#/12` membuka langsung slide k
 Cari tulisan `PERLU DIISI` di `index.html`. Bagian yang sengaja dikosongkan atau belum lengkap:
 
 - **Slide 1** — tanggal sidang.
-- **Slide 10 (Alat dan Bahan)** — kolom Jumlah dan Fungsi (tidak ada di laporan).
 - **Slide 12 (Teknik Pengumpulan Data)** — label primer/sekunder, ketelitian instrumen, dan jumlah ulangan, bila ingin ditampilkan.
 - **Slide 19 (Referensi)** — laporan hanya memuat nama penulis dan tahun. Jika ingin format APA lengkap, tambahkan judul dan sumbernya.
 
