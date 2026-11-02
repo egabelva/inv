@@ -6,7 +6,7 @@ Penyusun: Ega Belva Sofyana (XII B) · Pembimbing: Kinanti Kurnia Adisaputri
 ## Isi folder
 
 ```
-index.html            halaman presentasi (20 slide)
+index.html            halaman presentasi (19 slide)
 css/style.css         tampilan, warna, tema terang/gelap
 js/app.js             navigasi, layar penuh, tema, animasi, latar motif, grafik
 assets/img/           logo sekolah dan foto dokumentasi dari laporan
@@ -40,8 +40,8 @@ Pilihan tema dan animasi diingat browser. Alamat `#/12` membuka langsung slide k
 Cari tulisan `PERLU DIISI` di `index.html`. Bagian yang sengaja dikosongkan atau belum lengkap:
 
 - **Slide 1** — tanggal sidang.
-- **Slide 12 (Teknik Pengumpulan Data)** — label primer/sekunder, ketelitian instrumen, dan jumlah ulangan, bila ingin ditampilkan.
-- **Slide 19 (Referensi)** — laporan hanya memuat nama penulis dan tahun. Jika ingin format APA lengkap, tambahkan judul dan sumbernya.
+- **Slide 11 (Teknik Pengumpulan Data)** — label primer/sekunder, ketelitian instrumen, dan jumlah ulangan, bila ingin ditampilkan.
+- **Slide 18 (Referensi)** — laporan hanya memuat nama penulis dan tahun. Jika ingin format APA lengkap, tambahkan judul dan sumbernya.
 
 ## Font
 
@@ -50,4 +50,4 @@ Cari tulisan `PERLU DIISI` di `index.html`. Bagian yang sengaja dikosongkan atau
 
 ## Catatan isi
 
-Semua isi bersumber dari laporan invention (versi dengan 25 panelis: Bab IV dan V menjadi acuan data). Salah ketik dan label tabel yang keliru di laporan sudah diperbaiki di website (misalnya label Tabel 4 dan 5). Ilustrasi kopi beruap di cover digambar sebagai bentuk vektor sederhana dengan kode, bukan gambar dari generator AI.
+Semua isi bersumber dari laporan invention (versi dengan 25 panelis: Bab IV dan V menjadi acuan data; angka simpangan baku tidak ditampilkan). Salah ketik dan label tabel yang keliru di laporan sudah diperbaiki di website (misalnya label Tabel 4 dan 5). Ilustrasi kopi beruap di cover digambar sebagai bentuk vektor sederhana dengan kode, bukan gambar dari generator AI.

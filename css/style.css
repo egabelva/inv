@@ -1076,3 +1076,22 @@ html[data-theme="light"] .rule::after { opacity: 0.6; }
 /* animasi dimatikan: garis tetap berwarna, tidak berjalan */
 html.no-anim .rule,
 html.no-anim .rule::after { animation: none !important; }
+
+/* ==========================================================
+   Revisi: halaman gabungan Manfaat + Landasan Teori,
+   kalimat lebih ringkas (ukuran teks dinaikkan)
+   ========================================================== */
+.ml { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 30px; height: 100%; }
+.ml .manfaat { padding: 28px 44px; }
+.ml .manfaat .p { font-size: 44px; line-height: 1.22; font-weight: 600; }
+.ml-teori { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; min-height: 0; }
+.ml-teori .card { padding: 28px 40px; display: flex; flex-direction: column; }
+.ml-teori .h3 { font-size: 56px; margin-bottom: 12px; }
+.ml-teori .p { font-size: 40px; line-height: 1.25; }
+.ml-teori .src { margin-top: auto; font-size: 22px; padding-top: 12px; }
+
+.pb .p { font-size: 37px; line-height: 1.26; }
+.pb.wide .p { font-size: 35px; }
+.ks .lead { font-size: 40px; line-height: 1.2; }
+.ks li { font-size: 35px; line-height: 1.22; }
+.ks li i { font-size: 24px; padding-top: 7px; }
