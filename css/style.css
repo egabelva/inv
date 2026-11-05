@@ -1031,7 +1031,7 @@ html.no-anim .slide.is-leaving { visibility: hidden; }
 }
 
 /* ==========================================================
-   Garis di bawah judul: lampu neon RGB berjalan (merah, hijau, biru)
+   Garis di bawah judul: lampu neon polos yang berganti warna (biru, merah, hijau)
    ========================================================== */
 .rule {
   position: relative;
@@ -1040,8 +1040,7 @@ html.no-anim .slide.is-leaving { visibility: hidden; }
   border: 0;
   border-radius: 10px;
   box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7);
-  background: linear-gradient(90deg, #ff2e2e 0, #2eff6a 200px, #2e7dff 400px, #ff2e2e 600px) repeat-x;
-  background-size: 600px 100%;
+  background: #2e7dff;
   transform-origin: left center;
 }
 .rule::after { /* cahaya neon di sekitar garis */
@@ -1052,28 +1051,28 @@ html.no-anim .slide.is-leaving { visibility: hidden; }
   top: -9px;
   bottom: -9px;
   border-radius: 16px;
-  background: linear-gradient(90deg, #ff2e2e 0, #2eff6a 200px, #2e7dff 400px, #ff2e2e 600px) repeat-x;
-  background-size: 600px 100%;
+  background: #2e7dff;
   filter: blur(16px);
   opacity: 0.95;
   z-index: -1;
 }
 html[data-theme="light"] .rule::after { opacity: 0.6; }
 
-@keyframes rgbRun { to { background-position: 600px 0; } }
+/* satu putaran 6 dtk: biru, merah, hijau, lalu kembali ke biru */
+@keyframes rgbRun { 0%, 12%, 100% { background-color: #2e7dff; } 33%, 45% { background-color: #ff2e2e; } 66%, 78% { background-color: #2eff6a; } }
 
 .slide.is-active .head .rule.draw-x,
-.slide.is-active .head .rule.draw-x::after { animation: rgbRun 3s linear infinite; }
+.slide.is-active .head .rule.draw-x::after { animation: rgbRun 6s ease-in-out infinite; }
 .slide.is-active .agenda-left .rule.draw-x,
 .slide.is-active .agenda-left .rule.draw-x::after {
-  animation: rgbRun 3s linear infinite;
+  animation: rgbRun 6s ease-in-out infinite;
 }
 .slide.is-active .agenda-left .rule.draw-x {
-  animation: drawX 1s var(--ease) both, rgbRun 3s linear infinite;
+  animation: drawX 1s var(--ease) both, rgbRun 6s ease-in-out infinite;
   animation-delay: calc(var(--i, 0) * 120ms + 200ms), 0s;
 }
 
-/* animasi dimatikan: garis tetap berwarna, tidak berjalan */
+/* animasi dimatikan: garis tetap satu warna, tidak berganti */
 html.no-anim .rule,
 html.no-anim .rule::after { animation: none !important; }
 
@@ -1097,8 +1096,49 @@ html.no-anim .rule::after { animation: none !important; }
 .ks li i { font-size: 24px; padding-top: 7px; }
 
 /* ==========================================================
-   Revisi 5: kotak Manfaat berisi tiga poin (siswa, sekolah, masyarakat)
+   Revisi 6
    ========================================================== */
-.ml .manfaat .mf { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
-.ml .manfaat .mf li { font-size: 31px; line-height: 1.22; font-weight: 600; }
-.ml .manfaat .mf b { display: block; font-family: var(--mono); font-size: 24px; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+/* Manfaat: satu kalimat ringkas */
+.ml .manfaat .p { font-size: 40px; line-height: 1.24; }
+
+/* Alat dan bahan: kartu berisi label, bukan tabel */
+.ab { display: grid; grid-template-columns: 1.3fr 1fr; gap: 38px; height: 100%; }
+.ab .card { padding: 26px 38px 34px; display: flex; flex-direction: column; }
+.chips { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 16px; flex: 1; counter-reset: ch; }
+.chips li {
+  counter-increment: ch;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 24px;
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent-fill);
+  border-radius: 6px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.chips li::before { content: counter(ch, decimal-leading-zero); font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--accent); }
+.ab > .card:first-child .chips { grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; }
+.chips.big { grid-template-columns: 1fr; grid-auto-rows: 1fr; }
+.chips.big li { display: block; align-self: stretch; padding: 22px 28px; border-left-color: var(--blue-fill); }
+.chips.big li::before { content: none; }
+.chips.big b { display: block; font-family: var(--serif); font-size: 56px; font-weight: 700; margin-bottom: 8px; }
+.chips.big span { display: block; font-size: 33px; font-weight: 500; line-height: 1.25; color: var(--muted); }
+
+/* Data hasil: tabel memenuhi satu baris penuh */
+.hasil { grid-template-columns: 1fr; }
+.hasil .tbl { font-size: 44px; }
+.hasil .tbl th { font-size: 28px; padding: 20px 34px; }
+.hasil .tbl td { padding: 22px 34px; }
+.hasil .tbl-cap { font-size: 27px; margin-bottom: 16px; }
+.hasil .src { font-size: 25px; }
+
+/* Kesimpulan: satu kartu penuh */
+.ks { grid-template-columns: 1fr; }
+.ks .card { padding: 28px 52px; display: flex; flex-direction: column; }
+.ks .lead { font-size: 48px; margin-bottom: 20px; }
+.ks ol { flex: 1; align-content: space-evenly; gap: 14px; }
+.ks li { grid-template-columns: 56px 1fr; font-size: 43px; line-height: 1.22; }
+.ks li i { font-size: 28px; padding-top: 9px; }
