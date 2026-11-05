@@ -8,7 +8,9 @@ Penyusun: Ega Belva Sofyana (XII B) · Pembimbing: Kinanti Kurnia Adisaputri
 ```
 index.html            halaman presentasi (19 slide)
 css/style.css         tampilan, warna, tema terang/gelap
+css/chara.css         gerakan karakter animasi di pojok kanan atas
 js/app.js             navigasi, layar penuh, tema, animasi, latar motif, grafik
+js/chara.js           memilih gerakan karakter (berbeda tiap slide)
 assets/img/           logo sekolah dan foto dokumentasi dari laporan
 assets/fonts/         IBM Plex Mono (lokal, lisensi OFL)
 .nojekyll             agar GitHub Pages menyajikan file apa adanya
@@ -33,13 +35,14 @@ Website ini membutuhkan internet saat dibuka lewat GitHub Pages. Coba buka sekal
 | Tema terang / gelap | Tombol kecil bulat setengah (default: gelap) |
 | Matikan / nyalakan animasi | Tombol kecil bergambar tunas |
 
+Karakter di pojok kanan atas bergerak berbeda tiap pindah slide dan ikut berhenti bila animasi dimatikan.
+
 Pilihan tema dan animasi diingat browser. Alamat `#/12` membuka langsung slide ke-12.
 
 ## Bagian yang masih perlu diisi
 
 Cari tulisan `PERLU DIISI` di `index.html`. Bagian yang sengaja dikosongkan atau belum lengkap:
 
-- **Slide 1** — tanggal sidang.
 - **Slide 11 (Teknik Pengumpulan Data)** — label primer/sekunder, ketelitian instrumen, dan jumlah ulangan, bila ingin ditampilkan.
 - **Slide 18 (Referensi)** — laporan hanya memuat nama penulis dan tahun. Jika ingin format APA lengkap, tambahkan judul dan sumbernya.
 

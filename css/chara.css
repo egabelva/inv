@@ -1,0 +1,160 @@
+/* ==========================================================
+   Karakter animasi (pojok kanan atas)
+   - gambar vektor orisinal, duduk bersila sambil minum kopi
+   - tiap pindah slide memainkan gerakan berbeda (kelas p0 … p9)
+   - mengikuti tombol animasi: bila animasi dimatikan, karakter diam
+   ========================================================== */
+.chara {
+  position: absolute;
+  right: 12px;
+  top: 4px;
+  width: 208px;
+  height: 190px;
+  z-index: 5;
+  pointer-events: none;
+}
+.chara.is-small { right: 10px; top: 4px; width: 128px; height: 117px; }
+.chara svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+.chara .o { stroke: #2a1f33; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.chara .skin { fill: #ffdcc3; }
+.chara .hair { fill: #6a4fb8; }
+.chara .hood { fill: #e3641b; }
+.chara .prop, .chara .q, .chara .ex { transform-box: fill-box; transform-origin: center; }
+.chara .prop { opacity: 0; }
+
+/* kondisi awal (diam) */
+.chara .eh, .chara .m-o, .chara .q, .chara .ex { opacity: 0; }
+.chara .m-s { opacity: 1; }
+
+/* ---------- Gerak dasar (selalu berjalan) ---------- */
+.chara .torso  { transform-origin: 110px 162px; animation: chBreathe 3.6s ease-in-out infinite; }
+.chara .eyes   { transform-origin: 110px 74px;  animation: chBlink 4.6s infinite; }
+.chara .ahoge  { transform-origin: 108px 30px;  animation: chAhoge 3.2s ease-in-out infinite; }
+.chara .steam path { animation: chSteam 2.4s ease-in-out infinite; }
+.chara .steam path:nth-child(2) { animation-delay: 0.8s; }
+.chara .steam path:nth-child(3) { animation-delay: 1.6s; }
+
+@keyframes chBreathe { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.025); } }
+@keyframes chBlink   { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.08); } }
+@keyframes chAhoge   { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(7deg); } }
+@keyframes chSteam   { 0% { opacity: 0; transform: translateY(6px); } 40% { opacity: 0.85; } 100% { opacity: 0; transform: translateY(-9px); } }
+
+/* titik putar */
+.chara .root  { transform-origin: 110px 188px; }
+.chara .head  { transform-origin: 110px 100px; }
+.chara .arm-r { transform-origin: 138px 114px; }
+.chara .arm-l { transform-origin: 82px 114px; }
+.chara .mug   { transform-origin: 117.4px 143.5px; }
+.chara .shadow { transform-origin: 110px 188px; }
+.chara .pupil { transform-origin: 110px 75px; }
+
+/* ---------- Gerakan bersama (durasi sama 3,2 dtk) ---------- */
+@keyframes chHappyOn  { 0%, 20% { opacity: 0; } 26%, 70% { opacity: 1; } 78%, 100% { opacity: 0; } }
+@keyframes chOpenOff  { 0%, 20% { opacity: 1; } 26%, 70% { opacity: 0; } 78%, 100% { opacity: 1; } }
+@keyframes chMouthO   { 0%, 14% { opacity: 0; } 20%, 76% { opacity: 1; } 84%, 100% { opacity: 0; } }
+@keyframes chMouthS   { 0%, 14% { opacity: 1; } 20%, 76% { opacity: 0; } 84%, 100% { opacity: 1; } }
+@keyframes chSpark    { 0%, 16% { opacity: 0; transform: scale(0) rotate(0); } 30% { opacity: 1; transform: scale(1.25) rotate(40deg); } 50% { opacity: 1; transform: scale(0.9) rotate(80deg); } 80% { opacity: 1; transform: scale(1.1) rotate(120deg); } 100% { opacity: 0; transform: scale(0.4) rotate(160deg); } }
+@keyframes chNote     { 0% { opacity: 0; transform: translate(0, 8px); } 20% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -38px); } }
+@keyframes chHeart    { 0% { opacity: 0; transform: translate(0, 10px) scale(0.5); } 25% { opacity: 1; transform: translate(0, -2px) scale(1.1); } 100% { opacity: 0; transform: translate(0, -34px) scale(0.9); } }
+@keyframes chPop      { 0%, 10% { opacity: 0; transform: scale(0.2) rotate(-20deg); } 22% { opacity: 1; transform: scale(1.3) rotate(8deg); } 32% { transform: scale(1) rotate(-6deg); } 44% { transform: scale(1.08) rotate(6deg); } 80% { opacity: 1; transform: scale(1) rotate(0); } 100% { opacity: 0; transform: scale(0.6); } }
+
+/* ---------- p0 · menyeruput kopi ---------- */
+.chara.p0 .arm-r  { animation: chSipArm 3.2s ease-in-out 1; }
+.chara.p0 .mug    { animation: chSipMug 3.2s ease-in-out 1; }
+.chara.p0 .head   { animation: chTiltR 3.2s ease-in-out 1; }
+.chara.p0 .eo     { animation: chOpenOff 3.2s linear 1; }
+.chara.p0 .eh     { animation: chHappyOn 3.2s linear 1; }
+@keyframes chSipArm { 0% { transform: rotate(0); } 24% { transform: rotate(92deg); } 70% { transform: rotate(92deg); } 94%, 100% { transform: rotate(0); } }
+@keyframes chSipMug { 0% { transform: rotate(0); } 24% { transform: rotate(-112deg); } 70% { transform: rotate(-112deg); } 94%, 100% { transform: rotate(0); } }
+@keyframes chTiltR  { 0%, 100% { transform: rotate(0); } 28%, 68% { transform: rotate(-4deg); } }
+
+/* ---------- p1 · melambaikan tangan ---------- */
+.chara.p1 .arm-l  { animation: chWaveArm 3.2s ease-in-out 1; }
+.chara.p1 .m-o    { animation: chMouthO 3.2s linear 1; }
+.chara.p1 .m-s    { animation: chMouthS 3.2s linear 1; }
+@keyframes chWaveArm { 0% { transform: rotate(0); } 16% { transform: rotate(118deg); } 26% { transform: rotate(140deg); } 36% { transform: rotate(104deg); } 46% { transform: rotate(140deg); } 56% { transform: rotate(104deg); } 66% { transform: rotate(140deg); } 76% { transform: rotate(118deg); } 94%, 100% { transform: rotate(0); } }
+
+/* ---------- p2 · melompat riang ---------- */
+.chara.p2 .root   { animation: chHop 3.2s ease-in-out 1; }
+.chara.p2 .shadow { animation: chShadowHop 3.2s ease-in-out 1; }
+.chara.p2 .eo     { animation: chOpenOff 3.2s linear 1; }
+.chara.p2 .eh     { animation: chHappyOn 3.2s linear 1; }
+.chara.p2 .spark  { animation: chSpark 3.2s ease-out 1; }
+@keyframes chHop { 0%, 6% { transform: translateY(0) scale(1, 1); } 10% { transform: translateY(0) scale(1.05, 0.93); } 22% { transform: translateY(-16px) scale(0.97, 1.04); } 34% { transform: translateY(0) scale(1.05, 0.93); } 44% { transform: translateY(0) scale(1, 1); } 54% { transform: translateY(-16px) scale(0.97, 1.04); } 66% { transform: translateY(0) scale(1.05, 0.93); } 76% { transform: translateY(0) scale(1, 1); } 86% { transform: translateY(-16px) scale(0.97, 1.04); } 96%, 100% { transform: translateY(0) scale(1, 1); } }
+@keyframes chShadowHop { 0%, 6%, 34%, 44%, 66%, 76%, 96%, 100% { transform: scale(1); opacity: 0.25; } 22%, 54%, 86% { transform: scale(0.8); opacity: 0.14; } }
+
+/* ---------- p3 · mengangguk ---------- */
+.chara.p3 .head   { animation: chNod 3.2s ease-in-out 1; }
+.chara.p3 .m-o    { animation: chMouthO 3.2s linear 1; }
+.chara.p3 .m-s    { animation: chMouthS 3.2s linear 1; }
+@keyframes chNod { 0%, 8% { transform: rotate(0) translateY(0); } 18% { transform: rotate(9deg) translateY(4px); } 30% { transform: rotate(0) translateY(0); } 42% { transform: rotate(9deg) translateY(4px); } 54% { transform: rotate(0) translateY(0); } 66% { transform: rotate(9deg) translateY(4px); } 78%, 100% { transform: rotate(0) translateY(0); } }
+
+/* ---------- p4 · bergoyang mengikuti irama ---------- */
+.chara.p4 .root   { animation: chSway 3.2s ease-in-out 1; }
+.chara.p4 .eo     { animation: chOpenOff 3.2s linear 1; }
+.chara.p4 .eh     { animation: chHappyOn 3.2s linear 1; }
+.chara.p4 .note   { animation: chNote 2.4s ease-out 1; }
+.chara.p4 .note.n2 { animation-delay: 0.7s; }
+.chara.p4 .note.n3 { animation-delay: 1.3s; }
+@keyframes chSway { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } 80% { transform: rotate(-5deg); } }
+
+/* ---------- p5 · bersulang ---------- */
+.chara.p5 .arm-r  { animation: chCheersArm 3.2s ease-in-out 1; }
+.chara.p5 .mug    { animation: chCheersMug 3.2s ease-in-out 1; }
+.chara.p5 .m-o    { animation: chMouthO 3.2s linear 1; }
+.chara.p5 .m-s    { animation: chMouthS 3.2s linear 1; }
+.chara.p5 .eo     { animation: chOpenOff 3.2s linear 1; }
+.chara.p5 .eh     { animation: chHappyOn 3.2s linear 1; }
+.chara.p5 .spark  { animation: chSpark 3.2s ease-out 1; }
+@keyframes chCheersArm { 0% { transform: rotate(0); } 24% { transform: rotate(160deg); } 38% { transform: rotate(150deg); } 50% { transform: rotate(160deg); } 62% { transform: rotate(150deg); } 74% { transform: rotate(160deg); } 94%, 100% { transform: rotate(0); } }
+@keyframes chCheersMug { 0% { transform: rotate(0); } 24% { transform: rotate(-168deg); } 38% { transform: rotate(-160deg); } 50% { transform: rotate(-168deg); } 62% { transform: rotate(-160deg); } 74% { transform: rotate(-168deg); } 94%, 100% { transform: rotate(0); } }
+
+/* ---------- p6 · berpikir ---------- */
+.chara.p6 .arm-l  { animation: chThinkArm 3.2s ease-in-out 1; }
+.chara.p6 .head   { animation: chTiltL 3.2s ease-in-out 1; }
+.chara.p6 .pupil  { animation: chLookUp 3.2s ease-in-out 1; }
+.chara.p6 .q      { animation: chPop 3.2s ease-out 1; }
+@keyframes chThinkArm { 0% { transform: rotate(0); } 24% { transform: rotate(-135deg); } 72% { transform: rotate(-135deg); } 94%, 100% { transform: rotate(0); } }
+@keyframes chTiltL    { 0%, 100% { transform: rotate(0); } 28%, 70% { transform: rotate(6deg); } }
+@keyframes chLookUp   { 0%, 100% { transform: translate(0, 0); } 28%, 70% { transform: translate(3px, -3px); } }
+
+/* ---------- p7 · tersipu, hati melayang ---------- */
+.chara.p7 .arm-l  { animation: chCheekArm 3.2s ease-in-out 1; }
+.chara.p7 .head   { animation: chTiltR 3.2s ease-in-out 1; }
+.chara.p7 .blush  { animation: chBlush 3.2s ease-in-out 1; }
+.chara.p7 .eo     { animation: chOpenOff 3.2s linear 1; }
+.chara.p7 .eh     { animation: chHappyOn 3.2s linear 1; }
+.chara.p7 .heart  { animation: chHeart 2.4s ease-out 1; }
+.chara.p7 .heart.h2 { animation-delay: 0.6s; }
+.chara.p7 .heart.h3 { animation-delay: 1.2s; }
+@keyframes chCheekArm { 0% { transform: rotate(0); } 24% { transform: rotate(170deg); } 72% { transform: rotate(170deg); } 94%, 100% { transform: rotate(0); } }
+@keyframes chBlush    { 0%, 100% { opacity: 0.55; } 30%, 70% { opacity: 1; } }
+
+/* ---------- p8 · melayang ---------- */
+.chara.p8 .root   { animation: chFloat 3.2s ease-in-out 1; }
+.chara.p8 .shadow { animation: chShadowFloat 3.2s ease-in-out 1; }
+.chara.p8 .spark  { animation: chSpark 3.2s ease-out 1; }
+.chara.p8 .ahoge  { animation-duration: 0.9s; }
+@keyframes chFloat { 0% { transform: translateY(0); } 20% { transform: translateY(-20px); } 40% { transform: translateY(-13px); } 60% { transform: translateY(-21px); } 80% { transform: translateY(-13px); } 100% { transform: translateY(0); } }
+@keyframes chShadowFloat { 0%, 100% { transform: scale(1); opacity: 0.25; } 20%, 60% { transform: scale(0.7); opacity: 0.12; } 40%, 80% { transform: scale(0.8); opacity: 0.15; } }
+
+/* ---------- p9 · terkejut ---------- */
+.chara.p9 .head   { animation: chStartle 3.2s ease-in-out 1; }
+.chara.p9 .eyes   { animation: chWide 3.2s ease-in-out 1; }
+.chara.p9 .arm-l  { animation: chUpArm 3.2s ease-in-out 1; }
+.chara.p9 .m-o    { animation: chMouthO 3.2s linear 1; }
+.chara.p9 .m-s    { animation: chMouthS 3.2s linear 1; }
+.chara.p9 .ex     { animation: chPop 3.2s ease-out 1; }
+.chara.p9 .ahoge  { animation: chAhogeUp 3.2s ease-in-out 1; }
+@keyframes chStartle { 0%, 100% { transform: translateY(0) rotate(0); } 10% { transform: translateY(-7px) rotate(-5deg); } 24%, 70% { transform: translateY(-3px) rotate(-3deg); } }
+@keyframes chWide    { 0%, 100% { transform: scale(1); } 10%, 70% { transform: scale(1.18); } 78% { transform: scale(1); } }
+@keyframes chUpArm   { 0% { transform: rotate(0); } 18% { transform: rotate(110deg); } 30% { transform: rotate(120deg); } 42% { transform: rotate(110deg); } 72% { transform: rotate(110deg); } 94%, 100% { transform: rotate(0); } }
+@keyframes chAhogeUp { 0%, 100% { transform: rotate(0); } 10%, 70% { transform: rotate(-22deg) scaleY(1.15); } }
+
+/* ---------- Animasi dimatikan: karakter diam ---------- */
+html.no-anim .chara *,
+html.no-anim .chara { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  html:not(.force-anim) .chara * { animation: none !important; }
+}

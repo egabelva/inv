@@ -240,6 +240,7 @@
       }
     });
     pgCur.textContent = pad(i + 1);
+    if (window.charaPose) window.charaPose(i); /* gerakan karakter berbeda tiap slide */
     btnPrev.disabled = i === 0;
     btnNext.disabled = i === TOTAL - 1;
     try { history.replaceState(null, "", "#/" + (i + 1)); } catch (e) { /* abaikan */ }

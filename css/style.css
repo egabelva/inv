@@ -1095,3 +1095,10 @@ html.no-anim .rule::after { animation: none !important; }
 .ks .lead { font-size: 40px; line-height: 1.2; }
 .ks li { font-size: 35px; line-height: 1.22; }
 .ks li i { font-size: 24px; padding-top: 7px; }
+
+/* ==========================================================
+   Revisi 5: kotak Manfaat berisi tiga poin (siswa, sekolah, masyarakat)
+   ========================================================== */
+.ml .manfaat .mf { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+.ml .manfaat .mf li { font-size: 31px; line-height: 1.22; font-weight: 600; }
+.ml .manfaat .mf b { display: block; font-family: var(--mono); font-size: 24px; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
