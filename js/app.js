@@ -215,36 +215,92 @@
     edgeTimer = setTimeout(function () { edgeEl.classList.remove("show"); }, 1300);
   }
 
+  /* ---------- Transisi dua tahap: keluar, lalu masuk (judul diketik) ---------- */
+  var OUT_MS = 720;
+  var OUTS = ["up", "left", "shrink", "right", "down"];
+  var INS = ["right", "bottom", "pop", "top", "left", "tilt"];
+  var FLIP_OUT = { up: "down", down: "up", left: "right", right: "left", shrink: "shrink" };
+  var FLIP_IN = { right: "left", left: "right", bottom: "top", top: "bottom", pop: "pop", tilt: "tilt" };
+  var pending = null, pendTimer = null, twTimers = [];
+
+  function reducedMotion() {
+    return html.classList.contains("no-anim") ||
+      (!html.classList.contains("force-anim") && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+  function titleEls(slide) { return [].slice.call(slide.querySelectorAll(".head .tag, .head .title")); }
+  function fullText(e) {
+    if (!e.hasAttribute("data-full")) e.setAttribute("data-full", e.textContent);
+    return e.getAttribute("data-full");
+  }
+  function clearTw() { twTimers.forEach(clearTimeout); twTimers = []; }
+  function resetTitles() {
+    clearTw();
+    slides.forEach(function (s) {
+      titleEls(s).forEach(function (e) { e.textContent = fullText(e); e.classList.remove("typing"); });
+    });
+  }
+  /* ketik (mode "in") atau hapus per huruf (mode "out") */
+  function tw(e, mode, startDelay, totalMs) {
+    var full = fullText(e), n = full.length;
+    if (!n) return;
+    var per = Math.max(10, Math.min(mode === "in" ? 48 : 22, totalMs / n));
+    e.classList.add("typing");
+    if (mode === "in") e.textContent = "\u200b";
+    var k = 0;
+    function step() {
+      k++;
+      var len = mode === "in" ? k : n - k;
+      e.textContent = len > 0 ? full.slice(0, len) : "\u200b";
+      if (k < n) twTimers.push(setTimeout(step, per));
+      else if (mode === "in") e.classList.remove("typing");
+    }
+    twTimers.push(setTimeout(step, startDelay));
+  }
+
+  function activate(i, dir) {
+    var s = slides[i], v = INS[i % INS.length];
+    s.setAttribute("data-in", dir < 0 ? FLIP_IN[v] : v);
+    slides.forEach(function (n, k) {
+      if (k === i) return;
+      n.classList.remove("is-active", "is-leaving");
+      n.setAttribute("inert", "");
+      n.setAttribute("aria-hidden", "true");
+    });
+    s.classList.remove("is-leaving", "is-active");
+    void s.offsetWidth; /* ulang animasi masuk */
+    s.classList.add("is-active");
+    s.removeAttribute("inert");
+    s.setAttribute("aria-hidden", "false");
+    if (!reducedMotion()) {
+      titleEls(s).forEach(function (e, k) { tw(e, "in", 120 + k * 60, 900); });
+    }
+  }
+
   function go(i) {
     i = Math.max(0, Math.min(TOTAL - 1, i));
     if (i === cur) return;
-    var prev = cur;
+    if (pending) { clearTimeout(pendTimer); var f = pending; pending = null; f(); resetTitles(); } /* tekan cepat: selesaikan dulu */
+    var prev = cur, dir = i > prev ? 1 : -1;
     cur = i;
-    slides.forEach(function (s, k) {
-      if (k === i) {
-        s.classList.remove("is-leaving", "is-active");
-        void s.offsetWidth; /* ulang animasi masuk */
-        s.classList.add("is-active");
-        s.removeAttribute("inert");
-        s.setAttribute("aria-hidden", "false");
-      } else {
-        if (k === prev) {
-          s.classList.remove("is-active");
-          s.classList.add("is-leaving");
-          (function (node) { setTimeout(function () { if (!node.classList.contains("is-active")) node.classList.remove("is-leaving"); }, 520); })(s);
-        } else {
-          s.classList.remove("is-active", "is-leaving");
-        }
-        s.setAttribute("inert", "");
-        s.setAttribute("aria-hidden", "true");
-      }
-    });
     pgCur.textContent = pad(i + 1);
     if (window.charaPose) window.charaPose(i); /* gerakan karakter berbeda tiap slide */
     btnPrev.disabled = i === 0;
     btnNext.disabled = i === TOTAL - 1;
     try { history.replaceState(null, "", "#/" + (i + 1)); } catch (e) { /* abaikan */ }
     document.title = (i + 1) + "/" + TOTAL + " · " + slides[i].getAttribute("aria-label").replace(/^Slide \d+:\s*/, "") + " · Sidang Invention";
+
+    if (prev < 0 || reducedMotion()) { resetTitles(); activate(i, dir); return; }
+
+    var old = slides[prev], o = OUTS[prev % OUTS.length];
+    old.setAttribute("data-out", dir < 0 ? FLIP_OUT[o] : o);
+    old.classList.remove("is-active");
+    old.classList.add("is-leaving");
+    old.setAttribute("inert", "");
+    old.setAttribute("aria-hidden", "true");
+    titleEls(old).forEach(function (e) { tw(e, "out", 0, 380); }); /* judul lama dihapus seperti backspace */
+
+    pending = function () { clearTw(); activate(i, dir); };
+    pendTimer = setTimeout(function () { var f = pending; pending = null; if (f) f(); }, OUT_MS);
   }
   function next() { if (cur >= TOTAL - 1) { showEdge("Slide terakhir"); return; } go(cur + 1); }
   function prev() { if (cur <= 0) { showEdge("Slide pertama"); return; } go(cur - 1); }

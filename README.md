@@ -25,6 +25,10 @@ assets/fonts/         IBM Plex Mono (lokal, lisensi OFL)
 
 Website ini membutuhkan internet saat dibuka lewat GitHub Pages. Coba buka sekali sebelum hari sidang.
 
+## Transisi
+
+Setiap pindah slide: kartu lama bergerak keluar (arah berbeda per slide), judul dihapus seperti backspace, lalu kartu baru masuk dari arah berbeda dan judul diketik ulang. Menekan panah berulang kali langsung menyelesaikan transisi yang sedang jalan. Dimatikan oleh tombol animasi atau pengaturan "reduce motion".
+
 ## Kontrol
 
 | Aksi | Cara |

@@ -1142,3 +1142,44 @@ html.no-anim .rule::after { animation: none !important; }
 .ks ol { flex: 1; align-content: space-evenly; gap: 14px; }
 .ks li { grid-template-columns: 56px 1fr; font-size: 43px; line-height: 1.22; }
 .ks li i { font-size: 28px; padding-top: 9px; }
+
+/* ==========================================================
+   Transisi dua tahap: keluar (variasi per slide) lalu masuk
+   ========================================================== */
+.slide.is-leaving .head, .slide.is-leaving .head .tag, .slide.is-leaving .head .title { visibility: visible; }
+.slide .title, .slide .head .tag { min-height: 1.15em; }
+.title.typing::after, .head .tag.typing::after {
+  content: ""; display: inline-block; width: 0.07em; height: 0.85em; margin-left: 0.08em;
+  background: currentColor; vertical-align: -0.06em; animation: caretBlink 0.7s steps(1) infinite;
+}
+.head .tag.typing::after { width: 0.5em; height: 2px; vertical-align: baseline; }
+@keyframes caretBlink { 50% { opacity: 0; } }
+
+/* gerak keluar: kartu bergerak berurutan */
+.slide.is-leaving[data-out] .g,
+.slide.is-leaving[data-out] .reveal,
+.slide.is-leaving[data-out] .gf:not(.head) {
+  animation-duration: 0.46s; animation-timing-function: cubic-bezier(.5, 0, .75, 0); animation-fill-mode: both;
+  animation-delay: min(calc(var(--i, 0) * 38ms), 260ms);
+}
+.slide.is-leaving[data-out="up"] .g, .slide.is-leaving[data-out="up"] .reveal, .slide.is-leaving[data-out="up"] .gf:not(.head) { animation-name: outUp; }
+.slide.is-leaving[data-out="down"] .g, .slide.is-leaving[data-out="down"] .reveal, .slide.is-leaving[data-out="down"] .gf:not(.head) { animation-name: outDown; }
+.slide.is-leaving[data-out="left"] .g, .slide.is-leaving[data-out="left"] .reveal, .slide.is-leaving[data-out="left"] .gf:not(.head) { animation-name: outLeft; }
+.slide.is-leaving[data-out="right"] .g, .slide.is-leaving[data-out="right"] .reveal, .slide.is-leaving[data-out="right"] .gf:not(.head) { animation-name: outRight; }
+.slide.is-leaving[data-out="shrink"] .g, .slide.is-leaving[data-out="shrink"] .reveal, .slide.is-leaving[data-out="shrink"] .gf:not(.head) { animation-name: outShrink; }
+@keyframes outUp     { to { opacity: 0; transform: translateY(-120px); } }
+@keyframes outDown   { to { opacity: 0; transform: translateY(120px); } }
+@keyframes outLeft   { to { opacity: 0; transform: translateX(-200px); } }
+@keyframes outRight  { to { opacity: 0; transform: translateX(200px); } }
+@keyframes outShrink { to { opacity: 0; transform: scale(0.6); } }
+
+/* gerak masuk: arah berbeda tiap slide */
+.slide[data-in="right"]  .g { --dx: 170px;  --dy: 0px;   --s: 1;    --r: 0deg; }
+.slide[data-in="left"]   .g { --dx: -170px; --dy: 0px;   --s: 1;    --r: 0deg; }
+.slide[data-in="bottom"] .g { --dx: 0px;    --dy: 110px; --s: 1;    --r: 0deg; }
+.slide[data-in="top"]    .g { --dx: 0px;    --dy: -110px; --s: 1;   --r: 0deg; }
+.slide[data-in="pop"]    .g { --dx: 0px;    --dy: 0px;   --s: 0.55; --r: 0deg; --o: center; }
+.slide[data-in="tilt"]   .g { --dx: 90px;   --dy: 50px;  --s: 0.94; --r: -5deg; }
+.slide[data-in] .g-left  { --dx: -150px; }
+.slide[data-in] .g-right { --dx: 150px; }
+.slide.is-active .g { animation-duration: 0.85s; }
