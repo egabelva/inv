@@ -8,6 +8,7 @@ Penyusun: Ega Belva Sofyana (XII B) · Pembimbing: Kinanti Kurnia Adisaputri
 ```
 index.html            halaman presentasi (19 slide)
 css/style.css         tampilan, warna, tema terang/gelap
+css/layout.css        tata letak tiap slide (menimpa style.css)
 css/chara.css         gerakan karakter animasi di pojok kanan atas
 js/app.js             navigasi, layar penuh, tema, animasi, latar motif, grafik
 js/chara.js           memilih gerakan karakter (berbeda tiap slide)

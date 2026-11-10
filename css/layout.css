@@ -1,0 +1,126 @@
+/* ==========================================================
+   Tata letak baru tiap slide (menimpa style.css, dimuat setelahnya)
+   ========================================================== */
+
+/* 2 · Alur: judul di atas, 6 bab sebagai kisi 3x2 */
+.agenda-left .in { left: 150px; top: 90px; width: 900px; }
+.agenda-left h2 { font-size: 92px; margin-bottom: 14px; }
+.agenda-left .school-mini { left: auto; right: 150px; bottom: 80px; }
+.agenda-list { left: 150px; right: 150px; top: 400px; bottom: 150px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: 24px; }
+.ag { flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
+.ag:nth-child(even) { transform: translateY(18px); }
+
+/* 3 · Latar belakang: foto di kiri, tiga kartu menjorok seperti tangga */
+.lb-wrap { grid-template-columns: 560px 1fr; }
+.lb-photo { order: -1; align-self: center; }
+.lb-list .card:nth-child(2) { margin-left: 70px; }
+.lb-list .card:nth-child(3) { margin-left: 140px; }
+.lb-list .p { font-size: 30px; }
+
+/* 4 · Rumusan: satu kalimat besar tanpa kartu */
+.big-q .card { background: none; border: 0; box-shadow: none; text-align: center; padding: 0 60px; }
+.big-q .card::before, .big-q .card::after { display: none; }
+.big-q .q { font-size: 92px; line-height: 1.16; }
+.big-q .q-mark { font-size: 320px; height: 150px; margin-bottom: 10px; opacity: 0.35; }
+
+/* 5 · Tujuan: pernyataan dengan garis tebal di kiri */
+.tujuan { place-items: center start; }
+.tujuan .card { width: 1320px; margin-left: 110px; background: none; border: 0; box-shadow: none; border-left: 14px solid var(--accent-fill); border-radius: 0; padding: 20px 70px; }
+.tujuan .card::before, .tujuan .card::after { display: none; }
+.tujuan .p { font-size: 72px; }
+
+/* 6 · Batasan dan hipotesis: hipotesis jadi spanduk di atas, batasan 3 kolom */
+.bh { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 36px; }
+.bh .hip { order: -1; display: grid; grid-template-columns: 220px 1fr; align-items: center; column-gap: 50px; padding: 26px 50px; }
+.bh .hip .k { grid-column: 1 / -1; }
+.bh .hip .h-code { font-size: 110px; margin: 0; }
+.bh .hip .p { font-size: 42px; }
+.bh ol { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.bh li { grid-template-columns: 1fr; gap: 6px; font-size: 34px; align-content: start; }
+
+/* 7 · Manfaat dan teori: kolom manfaat tinggi di kiri, dua teori bertumpuk */
+.ml { grid-template-rows: none; grid-template-columns: 560px 1fr; gap: 36px; }
+.ml .manfaat { display: flex; flex-direction: column; justify-content: center; }
+.ml .manfaat .p { font-size: 38px; }
+.ml-teori { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; gap: 28px; }
+.ml-teori .card { padding: 22px 40px; }
+.ml-teori .h3 { font-size: 46px; margin-bottom: 8px; }
+.ml-teori .p { font-size: 32px; }
+
+/* 10 · Desain: bento tidak simetris */
+.six { grid-template-columns: repeat(5, 1fr); grid-template-rows: 1fr 1fr; }
+.six .card:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+.six .card:nth-child(1) .p { font-size: 56px; }
+.six .card:nth-child(2) { grid-column: 3 / 4; grid-row: 1; }
+.six .card:nth-child(3) { grid-column: 4 / 6; grid-row: 1; }
+.six .card:nth-child(4) { grid-column: 3 / 4; grid-row: 2; }
+.six .card:nth-child(5) { grid-column: 4 / 5; grid-row: 2; }
+.six .card:nth-child(6) { grid-column: 5 / 6; grid-row: 2; }
+.six .card:nth-child(n+2) .p { font-size: 29px; }
+.six .card:nth-child(n+2) .p small { font-size: 24px; }
+.six .card .p[style] { font-size: 24px !important; }
+
+/* 11 · Alat dan bahan: alat sebagai deret chip, bahan di bawahnya */
+.ab { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 30px; }
+.ab > .card:first-child .chips { display: flex; flex-wrap: wrap; gap: 14px; }
+.ab > .card:last-child .chips { grid-template-columns: 1fr 1fr; }
+
+/* 12 · Prosedur: langkah menurun seperti tangga */
+.steps .trail { display: none; }
+.step:nth-child(3) { margin-top: 28px; }
+.step:nth-child(4) { margin-top: 56px; }
+.step:nth-child(5) { margin-top: 84px; }
+.step:nth-child(6) { margin-top: 112px; }
+.step .thumb img { height: 140px; }
+
+/* 13 · Pengumpulan data: instrumen besar di kiri, dua kartu di kanan */
+.tp { grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr 1fr; }
+.tp .card:nth-child(2) { grid-column: 1; grid-row: 1 / 3; }
+.tp .card:nth-child(1) { grid-column: 2; grid-row: 1; }
+.tp .card:nth-child(3) { grid-column: 2; grid-row: 2; }
+
+/* 14 · Pengolahan dan analisis: dua baris lebar */
+.pa { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; gap: 28px; }
+.pa .card { display: grid; grid-template-columns: 320px 1fr; column-gap: 50px; align-content: center; }
+.pa .card .k { grid-column: 1; grid-row: 1 / span 2; }
+.pa .card ul, .pa .card .stat { grid-column: 2; }
+.pa li { font-size: 34px; }
+.pa .stat { margin-top: 16px; }
+
+/* 15 · Data hasil: tabel di kiri, temuan utama sebagai kartu tinggi di kanan */
+.content:has(.hasil) { display: grid; grid-template-columns: 1.55fr 1fr; gap: 40px; align-items: stretch; }
+.hasil .tbl { font-size: 38px; }
+.hasil .tbl td, .hasil .tbl th { padding: 20px 24px; }
+.content:has(.hasil) .temuan { display: flex; flex-direction: column; justify-content: center; margin: 0; }
+
+/* 16 · Grafik dan dokumentasi: foto mosaik di kiri, grafik di kanan */
+.gd { grid-template-columns: 1fr 780px; }
+.gd .chart-card { order: 2; }
+.dokgrid { grid-template-columns: repeat(4, 1fr); }
+.dokgrid figure:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+
+/* 19 · Pembahasan parameter: tiga kartu menurun bertahap */
+.pb:not(.wide) { align-items: start; }
+.pb:not(.wide) .card:nth-child(2) { margin-top: 50px; }
+.pb:not(.wide) .card:nth-child(3) { margin-top: 100px; }
+.pb:not(.wide) .p { font-size: 31px; }
+
+/* 20 · Teori dan keterbatasan: tiga baris lebar */
+.pb.wide { grid-template-columns: 1fr; grid-template-rows: repeat(3, 1fr); gap: 20px; }
+.pb.wide .card { display: grid; grid-template-columns: 380px 1fr; column-gap: 44px; align-content: center; }
+.pb.wide .card .k { grid-column: 1; grid-row: 1 / span 4; }
+.pb.wide .card .p { grid-column: 2; font-size: 29px; margin: 0 0 6px; }
+
+/* 21 · Kesimpulan: kalimat pembuka di kiri, daftar a-e di kanan */
+.ks .card { display: grid; grid-template-columns: 500px 1fr; column-gap: 70px; align-content: center; }
+.ks .card .k, .ks .card .lead { grid-column: 1; }
+.ks .card ol { grid-column: 2; grid-row: 1 / span 3; align-content: center; gap: 18px; }
+.ks .lead { font-size: 44px; }
+.ks li { font-size: 37px; }
+
+/* 22 · Referensi: tiga lajur, bergeser selang-seling */
+.refs2 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 1fr); }
+.ref2 { grid-template-columns: 48px 1fr; padding: 0 18px; }
+.ref2 b { font-size: 28px; }
+.ref2 span { font-size: 21px; }
+.ref2:nth-child(even) { margin-left: 26px; }
