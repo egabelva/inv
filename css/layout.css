@@ -2,14 +2,6 @@
    Tata letak baru tiap slide (menimpa style.css, dimuat setelahnya)
    ========================================================== */
 
-/* 2 · Alur: judul di atas, 6 bab sebagai kisi 3x2 */
-.agenda-left .in { left: 150px; top: 90px; width: 900px; }
-.agenda-left h2 { font-size: 92px; margin-bottom: 14px; }
-.agenda-left .school-mini { left: auto; right: 150px; bottom: 80px; }
-.agenda-list { left: 150px; right: 150px; top: 400px; bottom: 150px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: 24px; }
-.ag { flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
-.ag:nth-child(even) { transform: translateY(18px); }
-
 /* 3 · Latar belakang: foto di kiri, tiga kartu menjorok seperti tangga */
 .lb-wrap { grid-template-columns: 560px 1fr; }
 .lb-photo { order: -1; align-self: center; }
