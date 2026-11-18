@@ -554,8 +554,8 @@ html.no-anim .cover-title .cur { animation: none; }
   border-right: 1.5px solid var(--line);
   z-index: 1;
 }
-.agenda-left .in { position: absolute; left: 150px; top: 330px; width: 440px; }
-.agenda-left h2 { font-family: var(--serif); font-size: 100px; line-height: 1; margin: 12px 0 28px; font-weight: 700; }
+.agenda-left .in { position: absolute; left: 110px; top: 330px; width: 420px; }
+.agenda-left h2 { font-family: var(--serif); font-size: 82px; line-height: 1.08; margin: 12px 0 28px; font-weight: 700; }
 .agenda-left .school-mini { position: absolute; left: 150px; bottom: 90px; display: flex; gap: 18px; align-items: center; }
 .agenda-left .school-mini b { font-size: 34px; font-family: var(--serif); line-height: 1; display: block; }
 .agenda-left .school-mini span { font-family: var(--mono); font-size: 20px; color: var(--muted); }
